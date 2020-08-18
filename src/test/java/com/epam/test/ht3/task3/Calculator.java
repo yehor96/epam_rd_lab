@@ -5,6 +5,16 @@ import java.util.Scanner;
 import static java.lang.Double.NaN;
 
 public class Calculator {
+    private double firstNumber;
+    private double secondNumber;
+    private String operator;
+    private double result;
+    private Scanner scanner;
+
+    public Calculator(){
+        scanner = new Scanner(System.in);
+    }
+
     public double getFirstNumber() {
         return firstNumber;
     }
@@ -60,12 +70,7 @@ public class Calculator {
         showDisplay();
     }
 
-    // TODO: You don't need static modificator here
-    public static double enterNumber(){
-
-        // TODO: You call enterNumber method twice in Main, so creating Scanner class each time
-        // is unnecessary. Move scanner to class variable with creation there.
-        Scanner scanner = new Scanner(System.in);
+    public double enterNumber(){
         String stringValue;
         double doubleValue = 0;
 
@@ -87,7 +92,6 @@ public class Calculator {
     }
 
     public String enterOperator(){
-        Scanner scanner = new Scanner(System.in);
         String entry;
         String prompt = ("You can enter one of the following operators:" +
                 "\n+ for addition" +
@@ -112,10 +116,4 @@ public class Calculator {
     private void showDisplay(){
         System.out.printf("The result of operation %.2f %s %.2f = %.2f", firstNumber, operator, secondNumber, result);
     }
-
-    // TODO: class variables have to be at the start of class even they are private
-    private double firstNumber;
-    private double secondNumber;
-    private String operator;
-    private double result;
 }
