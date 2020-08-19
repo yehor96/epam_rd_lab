@@ -53,16 +53,16 @@ public class Calculator {
 
         switch(operator){
             case "+":
-                result = operation.Addition(firstNumber, secondNumber);
+                result = operation.addition(firstNumber, secondNumber);
                 break;
             case "-":
-                result = operation.Subtraction(firstNumber, secondNumber);
+                result = operation.subtraction(firstNumber, secondNumber);
                 break;
             case "*":
-                result = operation.Multiplication(firstNumber, secondNumber);
+                result = operation.multiplication(firstNumber, secondNumber);
                 break;
             case "/":
-                result = operation.Division(firstNumber, secondNumber);
+                result = operation.division(firstNumber, secondNumber);
                 break;
             default:
                 System.out.println("Illegal operation!");
