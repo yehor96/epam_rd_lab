@@ -10,7 +10,6 @@ public abstract class Vegetable implements ICalorie, Comparable<Vegetable> {
     @Override
     public int compareTo(Vegetable another){
         int result = this.Name.compareTo(another.Name);
-        //Sorting by first name if last name is same d
         return result == 0 ? this.Name.compareTo(another.Name) : result;
     }
 

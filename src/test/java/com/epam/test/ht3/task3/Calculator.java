@@ -10,9 +10,11 @@ public class Calculator {
     private String operator;
     private double result;
     private Scanner scanner;
+    private Operation operation;
 
     public Calculator(){
         scanner = new Scanner(System.in);
+        operation = new Operation();
     }
 
     public double getFirstNumber() {
@@ -51,16 +53,16 @@ public class Calculator {
 
         switch(operator){
             case "+":
-                result = firstNumber + secondNumber;
+                result = operation.Addition(firstNumber, secondNumber);
                 break;
             case "-":
-                result = firstNumber - secondNumber;
+                result = operation.Subtraction(firstNumber, secondNumber);
                 break;
             case "*":
-                result = firstNumber * secondNumber;
+                result = operation.Multiplication(firstNumber, secondNumber);
                 break;
             case "/":
-                result = firstNumber / secondNumber;
+                result = operation.Division(firstNumber, secondNumber);
                 break;
             default:
                 System.out.println("Illegal operation!");
