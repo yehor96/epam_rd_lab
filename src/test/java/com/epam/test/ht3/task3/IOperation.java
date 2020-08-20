@@ -1,6 +1,6 @@
 package com.epam.test.ht3.task3;
 
-public interface IOperator {
+public interface IOperation {
     double addition(double number1, double number2);
 
     double subtraction(double number1, double number2);

@@ -1,7 +1,7 @@
 package com.epam.test.ht5.task1;
 
 public abstract class Vegetable implements ICalorie, Comparable<Vegetable> {
-    protected String Name;
+    protected String name;
 
     final int CALORIES = 5;
 
@@ -9,12 +9,12 @@ public abstract class Vegetable implements ICalorie, Comparable<Vegetable> {
 
     @Override
     public int compareTo(Vegetable another){
-        int result = this.Name.compareTo(another.Name);
-        return result == 0 ? this.Name.compareTo(another.Name) : result;
+        int result = this.name.compareTo(another.name);
+        return result == 0 ? this.name.compareTo(another.name) : result;
     }
 
     @Override
     public String toString(){
-        return Name;
+        return name;
     }
 }

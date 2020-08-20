@@ -2,7 +2,7 @@ package com.epam.test.ht5.task1;
 
 public class Cucumber extends FruitVegetable  {
     public Cucumber() {
-        Name = "Cucumber";
+        name = "Cucumber";
     }
 
     @Override
@@ -12,6 +12,6 @@ public class Cucumber extends FruitVegetable  {
 
     @Override
     String getName() {
-        return Name;
+        return name;
     }
 }

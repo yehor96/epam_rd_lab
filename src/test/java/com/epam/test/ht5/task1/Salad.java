@@ -1,7 +1,7 @@
 package com.epam.test.ht5.task1;
 
 public class Salad {
-    public Vegetable[] Ingredients;
+    public Vegetable[] ingredients;
 
-    public int Calories;
+    public int calories;
 }

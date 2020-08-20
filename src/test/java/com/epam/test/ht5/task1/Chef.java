@@ -1,6 +1,5 @@
 package com.epam.test.ht5.task1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Chef {
@@ -9,33 +8,33 @@ public class Chef {
     public Salad cookSalad(){
         salad = new Salad();
 
-        salad.Ingredients = new Vegetable[5];
-        salad.Ingredients[0] = new Cilantro();
-        salad.Ingredients[1] = new Tomato();
-        salad.Ingredients[2] = new Cucumber();
-        salad.Ingredients[3] = new Pepper();
-        salad.Ingredients[4] = new Garlic();
+        salad.ingredients = new Vegetable[5];
+        salad.ingredients[0] = new Cilantro();
+        salad.ingredients[1] = new Tomato();
+        salad.ingredients[2] = new Cucumber();
+        salad.ingredients[3] = new Pepper();
+        salad.ingredients[4] = new Garlic();
 
         return salad;
     }
 
     public void getIngredientsOrderedByName(Salad salad){
-        Arrays.sort(salad.Ingredients);
-        for(var each : salad.Ingredients){
+        Arrays.sort(salad.ingredients);
+        for(var each : salad.ingredients){
             System.out.println(each);
         }
     }
 
     public int getCalories(Salad salad){
-        for(var each : salad.Ingredients) {
-            salad.Calories += each.getCalories();
+        for(var each : salad.ingredients) {
+            salad.calories += each.getCalories();
         }
 
-        return salad.Calories;
+        return salad.calories;
     }
 
     public void getIngredientsWithCalories(Salad salad, int from, int to){
-        for(var each : salad.Ingredients){
+        for(var each : salad.ingredients){
             if((each.getCalories() >= from) && (each.getCalories() <= to)){
                 System.out.println(each + "\t" + each.getCalories());
             }
@@ -43,7 +42,7 @@ public class Chef {
     }
 
     public void getIngredientsWithCalories(Salad salad){
-        for(var each : salad.Ingredients){
+        for(var each : salad.ingredients){
                 System.out.println(each + "\t" + each.getCalories());
         }
     }

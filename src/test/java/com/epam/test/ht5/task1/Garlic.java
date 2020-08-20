@@ -2,7 +2,7 @@ package com.epam.test.ht5.task1;
 
 public class Garlic extends OnionCulture {
     public Garlic() {
-        Name = "Garlic";
+        name = "Garlic";
     }
 
     @Override
@@ -12,11 +12,11 @@ public class Garlic extends OnionCulture {
 
     @Override
     void getNutrients() {
-        System.out.println(Name + " is full of nutrients.");
+        System.out.println(name + " is full of nutrients.");
     }
 
     @Override
     String getName() {
-        return Name;
+        return name;
     }
 }

@@ -2,7 +2,7 @@ package com.epam.test.ht5.task1;
 
 public class Pepper extends FruitVegetable {
     public Pepper() {
-        Name = "Pepper";
+        name = "Pepper";
     }
 
     @Override
@@ -12,11 +12,11 @@ public class Pepper extends FruitVegetable {
 
     @Override
     String getName() {
-        return Name;
+        return name;
     }
 
     @Override
     void getTaste(){
-        System.out.println(Name + " tastes bitter.");
+        System.out.println(name + " tastes bitter.");
     }
 }

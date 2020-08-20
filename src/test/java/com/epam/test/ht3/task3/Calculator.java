@@ -10,11 +10,11 @@ public class Calculator {
     private String operator;
     private double result;
     private Scanner scanner;
-    private Operation operation;
+    private IOperation operation;
 
-    public Calculator(){
+    public Calculator(IOperation operation){
         scanner = new Scanner(System.in);
-        operation = new Operation();
+        this.operation = operation;
     }
 
     public double getFirstNumber() {

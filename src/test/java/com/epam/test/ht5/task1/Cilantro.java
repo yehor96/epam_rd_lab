@@ -2,7 +2,7 @@ package com.epam.test.ht5.task1;
 
 public class Cilantro extends GreenCulture {
     public Cilantro() {
-        Name = "Cilantro";
+        name = "Cilantro";
     }
 
     @Override
@@ -17,6 +17,6 @@ public class Cilantro extends GreenCulture {
 
     @Override
     String getName() {
-        return Name;
+        return name;
     }
 }
