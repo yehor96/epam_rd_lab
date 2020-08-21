@@ -1,10 +1,12 @@
 package com.epam.test.ht6.task1;
 
+import com.epam.test.ht6.task1.test.NegativesAreNotAllowedException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CalculatorString {
-    public int add(String numbers){
+    public int add(String numbers) throws NegativesAreNotAllowedException {
         if(numbers.equals("")){
             return 0;
         }
@@ -24,19 +26,34 @@ public class CalculatorString {
         String[] valuesByDelim = numbers.split(delimiter);
 
         if(numbers.contains("\n")){
-        ArrayList<String> valuesByLine = getNumbersIfSeparatedByLine(valuesByDelim);
+            ArrayList<String> valuesByLine = getNumbersIfSeparatedByLine(valuesByDelim);
+
+            AreNegativesIncluded(valuesByLine.toArray(new String[valuesByLine.size()]));
 
             for(var each : valuesByLine){
                 result += Integer.parseInt(each);
             }
         }
         else{
+            AreNegativesIncluded(valuesByDelim);
             for(var each : valuesByDelim){
                 result += Integer.parseInt(each);
             }
         }
 
         return result;
+    }
+
+    public void AreNegativesIncluded(String[] values) throws NegativesAreNotAllowedException{
+        ArrayList<String> listOfNegatives = new ArrayList<>();
+        for(var each : values){
+            if(Integer.parseInt(each) < 0){
+                listOfNegatives.add(each);
+            }
+        }
+        if(listOfNegatives.size() != 0){
+            throw new NegativesAreNotAllowedException(listOfNegatives.toString());
+        }
     }
 
     public ArrayList<String> getNumbersIfSeparatedByLine(String[] array) {
