@@ -17,32 +17,19 @@ public class Calculator {
         this.operation = operation;
     }
 
-    public double getFirstNumber() {
-        return firstNumber;
-    }
-
     public void setFirstNumber(double firstNumber) {
         this.firstNumber = firstNumber;
-    }
-
-    public double getSecondNumber() {
-        return secondNumber;
     }
 
     public void setSecondNumber(double secondNumber) {
         this.secondNumber = secondNumber;
     }
 
-    public String getOperator() {
-        return operator;
-    }
-
     public void setOperator(String operator) {
         this.operator = operator;
     }
 
-
-    public void makeOperation(double firstNumber, double secondNumber, String operator){
+    public double makeOperation(double firstNumber, double secondNumber, String operator){
         if(secondNumber==0 && operator.equals("/")){
             System.out.println("It is not possible to divide by zero! Please change operator.");
             while(operator.equals("/")){
@@ -54,22 +41,20 @@ public class Calculator {
         switch(operator){
             case "+":
                 result = operation.addition(firstNumber, secondNumber);
-                break;
+                return result;
             case "-":
                 result = operation.subtraction(firstNumber, secondNumber);
-                break;
+                return result;
             case "*":
                 result = operation.multiplication(firstNumber, secondNumber);
-                break;
+                return result;
             case "/":
                 result = operation.division(firstNumber, secondNumber);
-                break;
+                return result;
             default:
                 System.out.println("Illegal operation!");
-                result = NaN;
+                return NaN;
         }
-
-        showDisplay();
     }
 
     public double enterNumber(){
@@ -115,7 +100,8 @@ public class Calculator {
         return entry;
     }
 
-    private void showDisplay(){
-        System.out.printf("The result of operation %.2f %s %.2f = %.2f", firstNumber, operator, secondNumber, result);
+    public String showDisplay(){
+        return String.format("The result of operation %.2f %s %.2f = %.2f",
+                firstNumber, operator, secondNumber, result);
     }
 }

@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator(new Operation());
-        double number1, number2;
+        double number1, number2, result;
         String operator;
 
         number1 = calculator.enterNumber();
@@ -16,5 +16,6 @@ public class Main {
         calculator.setOperator(operator);
 
         calculator.makeOperation(number1, number2, operator);
+        calculator.showDisplay();
     }
 }
