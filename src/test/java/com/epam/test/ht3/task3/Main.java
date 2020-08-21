@@ -3,7 +3,7 @@ package com.epam.test.ht3.task3;
 public class Main {
 
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(new Operation());
         double number1, number2;
         String operator;
 
