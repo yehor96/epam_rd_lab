@@ -55,16 +55,16 @@ public class Calculator {
         switch(operator){
             case "+":
                 result = operation.addition(firstNumber, secondNumber);
-                break;
+                return result;
             case "-":
                 result = operation.subtraction(firstNumber, secondNumber);
-                break;
+                return result;
             case "*":
                 result = operation.multiplication(firstNumber, secondNumber);
-                break;
+                return result;
             case "/":
                 result = operation.division(firstNumber, secondNumber);
-                break;
+                return result;
             default:
                 result = NaN;
         }
