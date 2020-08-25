@@ -16,5 +16,6 @@ public class Main {
         calculator.setOperator(operator);
 
         calculator.makeOperation(number1, number2, operator);
+        calculator.showDisplay();
     }
 }
