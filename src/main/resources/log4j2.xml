@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %msg%n"/>
+            <ThresholdFilter level ="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+        </Console>
+
+        <RollingFile name="LogAllToFile" fileName="logs/All_Logs/app.json"
+                     filePattern="${filename}/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log">
+            <JSONLayout complete="true" compact="false"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="LogErrorsToFile" fileName="logs/Error_Logs/app.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern> %d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+
+    </Appenders>
+    <Loggers>
+        <Logger name ="com.epam.test.ht3.task3.Calculator" level="TRACE" additivity="false">
+            <AppenderRef ref="LogToConsole" level="info"/>
+            <AppenderRef ref="LogAllToFile" level="trace"/>
+            <AppenderRef ref="LogErrorsToFile" level="error"/>
+        </Logger>
+
+        <Root level="error">
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+    </Loggers>
+</Configuration>
