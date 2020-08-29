@@ -20,10 +20,6 @@ public class Main {
         serializerSalad.serializeObject(salad, file1);
         serializerChef.serializeObject(chef, file2);
 
-        chef = null;
-        salad = null;
-        System.gc();
-
         Salad newSalad = serializerSalad.deserializeObject(file1);
         Chef newChef = serializerChef.deserializeObject(file2);
 
