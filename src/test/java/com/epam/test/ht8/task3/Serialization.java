@@ -4,7 +4,6 @@ import java.io.*;
 
 public class Serialization<T> {
     public void serializeObject(T object, String file) throws IOException {
-
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
