@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        String filePath = "D:\\\\Tech\\\\git\\\\epam_rd_lab\\\\words.csv";
+        String filePath = "D:\\\\Tech\\\\git\\\\epam_rd_lab\\\\additional_files\\\\words.csv";
         TextAnalyzer analyzer = new TextAnalyzer();
 
         while(analyzer.keepRunningApp){
