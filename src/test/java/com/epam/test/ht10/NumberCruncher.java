@@ -1,11 +1,11 @@
 package com.epam.test.ht10;
 
 public class NumberCruncher implements Runnable {
+    private int[] rangeOfNums;
+
     public NumberCruncher(int[] nums) {
         this.rangeOfNums = nums;
     }
-
-    private int[] rangeOfNums;
 
     public void run(){
         getPrimeNumbers();
