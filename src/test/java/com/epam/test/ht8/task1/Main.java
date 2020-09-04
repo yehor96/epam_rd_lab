@@ -2,9 +2,11 @@ package com.epam.test.ht8.task1;
 
 import java.io.FileNotFoundException;
 
+import static com.epam.test.ht8.task1.ConsoleOperator.print;
+
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        String filePath = "D:\\\\Tech\\\\git\\\\epam_rd_lab\\\\additional_files\\\\words.csv";
+        String filePath = ".\\additional_files\\words.csv";
         TextAnalyzer analyzer = new TextAnalyzer();
 
         while(analyzer.keepRunningApp){
@@ -20,11 +22,11 @@ public class Main {
                     analyzer.duplicatesOperation(filePath);
                     break;
                 default:
-                    System.out.println("Incorrect operation type.");
+                    print("Incorrect operation type.");
             }
             analyzer.keepRunningApp = analyzer.ShouldKeepRunning();
         }
 
-        System.out.println("Thank you for using our application! Goodbye!");
+        print("Thank you for using our application! Goodbye!\n");
     }
 }

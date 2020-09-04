@@ -12,8 +12,8 @@ public class Main {
         System.out.println("======== Original classes ========");
         displayInfo(chef, salad);
 
-        String file1 = "D:\\\\Tech\\\\git\\\\epam_rd_lab\\\\additional_files\\\\SerializedObjectSalad.ser";
-        String file2 = "D:\\\\Tech\\\\git\\\\epam_rd_lab\\\\additional_files\\\\SerializedObjectChef.ser";
+        String file1 = ".\\additional_files\\SerializedObjectSalad.ser";
+        String file2 = ".\\additional_files\\\\SerializedObjectChef.ser";
         Serialization<Salad> serializerSalad = new Serialization<>();
         Serialization<Chef> serializerChef = new Serialization<>();
 

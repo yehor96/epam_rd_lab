@@ -7,14 +7,15 @@ public class FirstFourCharsObj extends ParentKey {
 
     @Override
     public int hashCode() {
-        String str = "";
         if(key.length() < 4){
             return Integer.parseInt(key);
         }
 
+        StringBuilder builder = new StringBuilder();
         for(int i = 0; i < 4; i++){
-            str += key.toCharArray()[i];
+            builder.append(key.toCharArray()[i]);
         }
-        return Integer.parseInt(str);
+
+        return Integer.parseInt(builder.toString());
     }
 }
