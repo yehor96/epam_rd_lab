@@ -4,11 +4,11 @@ import com.epam.test.ht12.models.requests.createpet.CreatePetRequest;
 import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
 import com.epam.test.ht12.models.responses.createpet.PetModel;
 import com.epam.test.ht12.models.responses.getpetbyid.GetPetByIdResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 
-import java.io.IOException;
+import java.io.File;
 
 public class PetService {
     private static String URL;
@@ -16,6 +16,15 @@ public class PetService {
 
     public PetService(String baseUrl){
         URL = baseUrl + CONTROLLER;
+    }
+
+    public ConfirmationModel uploadImageToPet(String path, String format, int id){
+        return RestAssured.given().header("Content-Type", ContentType.JSON)
+                .header("Content-Type", "multipart/form-data")
+                .multiPart("file", new File(path), format)
+                .log().all()
+                .when().post(URL + id + "/uploadImage")
+                .then().log().all().statusCode(200).extract().as(ConfirmationModel.class);
     }
 
     public GetPetByIdResponse getPetById(int id){
@@ -54,14 +63,14 @@ public class PetService {
                 .then().log().all().statusCode(200).extract().as(ConfirmationModel.class);
     }
 
-    public GetPetByIdResponse[] getPetsByStatus(String status) throws IOException {
-        String jsonResponse = RestAssured.given()
+    public GetPetByIdResponse[] getPetsByStatus(String status) {
+        Response response = RestAssured.given()
                 .header("Content-Type", ContentType.JSON)
                 .queryParam("status", status)
                 .log().all()
                 .when().get(URL + "findByStatus")
-                .then().log().all().statusCode(200).extract().toString();
+                .then().log().all().statusCode(200).extract().response();
 
-        return new ObjectMapper().readValue(jsonResponse, GetPetByIdResponse[].class);
+        return response.as(GetPetByIdResponse[].class);
     }
 }

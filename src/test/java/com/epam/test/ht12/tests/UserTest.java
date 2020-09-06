@@ -5,6 +5,8 @@ import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
 import com.epam.test.ht12.services.UserService;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserTest {
@@ -134,5 +136,76 @@ public class UserTest {
         //THEN
         assertThat(logoutResponse.getCode()).isEqualTo(200);
         assertThat(logoutResponse.getMessage()).isEqualTo("ok");
+    }
+
+    @Test
+    void testCreateUserWithArray(){
+        //GIVEN
+        String username = "user_test";
+        String email = "test@test.com";
+        String password = "pass";
+        String username2 = "user_test2";
+        String email2 = "test@test.com2";
+        String password2 = "pass2";
+
+
+        UserModel[] createUserWithArrayRequest = new UserModel[2];
+
+        createUserWithArrayRequest[0] = new UserModel();
+        createUserWithArrayRequest[0].setUsername(username);
+        createUserWithArrayRequest[0].setEmail(email);
+        createUserWithArrayRequest[0].setPassword(password);
+
+        createUserWithArrayRequest[1] = new UserModel();
+        createUserWithArrayRequest[1].setUsername(username2);
+        createUserWithArrayRequest[1].setEmail(email2);
+        createUserWithArrayRequest[1].setPassword(password2);
+
+        //WHEN
+        ConfirmationModel createUserWithArrayResponse = userService.createUserWithArray(createUserWithArrayRequest);
+
+        //THEN
+        assertThat(createUserWithArrayResponse.getCode()).isEqualTo(200);
+
+        for(var each : createUserWithArrayRequest){
+            userService.deleteUserByUsername(each.getUsername());
+        }
+    }
+
+    @Test
+    void testCreateUserWithList(){
+        //GIVEN
+        String username = "user_test";
+        String email = "test@test.com";
+        String password = "pass";
+        String username2 = "user_test2";
+        String email2 = "test@test.com2";
+        String password2 = "pass2";
+
+
+        ArrayList<UserModel> createUserWithListRequest = new ArrayList<>();
+
+        UserModel user = new UserModel();
+
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password);
+        createUserWithListRequest.add(user);
+
+        UserModel user2 = new UserModel();
+        user2.setUsername(username2);
+        user2.setEmail(email2);
+        user2.setPassword(password2);
+        createUserWithListRequest.add(user2);
+
+        //WHEN
+        ConfirmationModel createUserWithListResponse = userService.createUserWithList(createUserWithListRequest);
+
+        //THEN
+        assertThat(createUserWithListResponse.getCode()).isEqualTo(200);
+
+        for(var each : createUserWithListRequest){
+            userService.deleteUserByUsername(each.getUsername());
+        }
     }
 }

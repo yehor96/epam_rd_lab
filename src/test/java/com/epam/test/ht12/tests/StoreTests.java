@@ -93,6 +93,10 @@ public class StoreTests {
         assertThat(deleteOrderByIdResponse.getCode()).isEqualTo(200);
     }
 
+    /**
+     * This test fails once someone adds new 'status'.
+     * Once it happens, it is necessary to update response model.
+     */
     @Test
     void testGetInventory(){
         //GIVEN

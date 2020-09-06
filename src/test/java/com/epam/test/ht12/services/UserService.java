@@ -5,6 +5,8 @@ import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
+import java.util.ArrayList;
+
 public class UserService {
     private static String URL;
     private static final String CONTROLLER = "user/";
@@ -48,6 +50,18 @@ public class UserService {
     public ConfirmationModel logout() {
         return RestAssured.given().header("Content-Type", ContentType.JSON).log().all()
                 .when().get(URL + "logout/")
+                .then().log().all().statusCode(200).extract().as(ConfirmationModel.class);
+    }
+
+    public ConfirmationModel createUserWithArray(UserModel[] createUserRequest) {
+        return RestAssured.given().header("Content-Type", ContentType.JSON).body(createUserRequest).log().all()
+                .when().post(URL + "createWithArray")
+                .then().log().all().statusCode(200).extract().as(ConfirmationModel.class);
+    }
+
+    public ConfirmationModel createUserWithList(ArrayList<UserModel> createUserWithListRequest) {
+        return RestAssured.given().header("Content-Type", ContentType.JSON).body(createUserWithListRequest).log().all()
+                .when().post(URL + "createWithList")
                 .then().log().all().statusCode(200).extract().as(ConfirmationModel.class);
     }
 }

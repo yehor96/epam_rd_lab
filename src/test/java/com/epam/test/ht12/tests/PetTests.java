@@ -1,13 +1,11 @@
 package com.epam.test.ht12.tests;
 
 import com.epam.test.ht12.models.requests.createpet.CreatePetRequest;
-import com.epam.test.ht12.models.responses.createpet.PetModel;
 import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
+import com.epam.test.ht12.models.responses.createpet.PetModel;
 import com.epam.test.ht12.models.responses.getpetbyid.GetPetByIdResponse;
 import com.epam.test.ht12.services.PetService;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,6 +13,27 @@ public class PetTests {
     private static final String BASE_URL = "https://petstore.swagger.io/v2/";
 
     private PetService petService = new PetService(BASE_URL);
+
+    @Test
+    void testUploadImageToPet(){
+        //GIVEN
+        String name = "yeh_test_01";
+        int id = 10001;
+        String path = ".\\additional_files\\java_image.jpg";
+        String format = "image/jpeg";
+
+        CreatePetRequest createPetRequest = new CreatePetRequest();
+        createPetRequest.setId(id);
+        createPetRequest.setName(name);
+        petService.createPet(createPetRequest);
+
+        //WHEN
+        ConfirmationModel uploadImageResponse = petService.uploadImageToPet(path, format, id);
+
+        //THEN
+        assertThat(uploadImageResponse.getCode()).isEqualTo(200);
+        assertThat(uploadImageResponse.getMessage()).contains("File uploaded");
+    }
 
     @Test
     void testGetPetById(){
@@ -133,7 +152,7 @@ public class PetTests {
      * on array of GetPetByIdResponse objects
      */
     @Test
-    void testGetPetByStatus() throws IOException {
+    void testGetPetByStatus() {
         //GIVEN
         String name = "yeh_test_01";
         int id = 10001;
