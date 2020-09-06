@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class ConsoleOperator {
+public class InputOutputHelper {
     private static final Scanner scannerConsole = new Scanner(System.in);
     private static Scanner scannerFile;
 

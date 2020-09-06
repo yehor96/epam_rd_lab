@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-import static com.epam.test.ht8.task1.ConsoleOperator.*;
+import static com.epam.test.ht8.task1.InputOutputHelper.*;
 import static java.util.stream.Collectors.toMap;
 
 public class TextAnalyzer {

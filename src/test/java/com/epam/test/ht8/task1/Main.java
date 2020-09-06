@@ -2,7 +2,7 @@ package com.epam.test.ht8.task1;
 
 import java.io.FileNotFoundException;
 
-import static com.epam.test.ht8.task1.ConsoleOperator.print;
+import static com.epam.test.ht8.task1.InputOutputHelper.print;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
