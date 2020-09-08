@@ -1,6 +1,8 @@
 package com.epam.test.ht5.task1;
 
-public abstract class Vegetable implements ICalorie, Comparable<Vegetable> {
+import java.io.Serializable;
+
+public abstract class Vegetable implements ICalorie, Serializable, Comparable<Vegetable> {
     protected String name;
 
     final int CALORIES = 5;
