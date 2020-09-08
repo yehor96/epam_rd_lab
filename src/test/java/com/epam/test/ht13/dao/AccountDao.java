@@ -9,12 +9,17 @@ import java.util.Objects;
 import java.util.Optional;
 
 import static com.epam.test.ht13.ConnectorDb.getConnection;
+import static com.epam.test.ht8.task1.InputOutputHelper.print;
 
 public class AccountDao implements Dao<Account> {
+    public AccountDao(){
+        connection = getConnection();
+    }
+
+    private static Connection connection;
+
     @Override
     public Optional<Account> get(long id) {
-        Connection connection = getConnection();
-
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM account WHERE id=" + id);
@@ -25,12 +30,11 @@ public class AccountDao implements Dao<Account> {
             ex.printStackTrace();
         }
 
-        return null;
+        return Optional.empty();
     }
 
     @Override
     public List<Account> getAll() {
-        Connection connection = getConnection();
         List<Account> accounts = new ArrayList<>();
 
         try {
@@ -49,7 +53,6 @@ public class AccountDao implements Dao<Account> {
 
     @Override
     public void save(Account account) {
-        Connection connection = getConnection();
         int accId = getRowCount() + 1;
 
         try {
@@ -60,9 +63,9 @@ public class AccountDao implements Dao<Account> {
             ps.setInt(4, account.getClientId());
             int i = ps.executeUpdate();
             if (i != 1) {
-                System.out.println("Account with id " + accId + " is not created.");
+                print("Account with id " + accId + " is not created.\n");
             } else {
-                System.out.println("Account with id " + accId + " is created.");
+                print("Account with id " + accId + " is created.\n");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -71,15 +74,13 @@ public class AccountDao implements Dao<Account> {
 
     @Override
     public void update(Account account, String[] params) {
-        Connection connection = getConnection();
-
         account.setCurrency(Objects.requireNonNull(
                 params[0], "Sum cannot be null"));
 
-        account.setSum(Integer.valueOf(Objects.requireNonNull(
+        account.setSum(Integer.parseInt(Objects.requireNonNull(
                 params[1], "Currency cannot be null")));
 
-        account.setClientId(Integer.valueOf(Objects.requireNonNull(
+        account.setClientId(Integer.parseInt(Objects.requireNonNull(
                 params[2], "ClientId cannot be null")));
 
         try {
@@ -90,9 +91,9 @@ public class AccountDao implements Dao<Account> {
             ps.setInt(4, account.getId());
             int i = ps.executeUpdate();
             if (i != 1) {
-                System.out.println("Account with id " + account.getId() + " is updated.");
+                print("Account with id " + account.getId() + " is updated.\n");
             } else {
-                System.out.println("Account with id " + account.getId() + " is updated.");
+                print("Account with id " + account.getId() + " is updated.\n");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -101,14 +102,13 @@ public class AccountDao implements Dao<Account> {
 
     @Override
     public void delete(Account account) {
-        Connection connection = getConnection();
         try {
             Statement stmt = connection.createStatement();
             int i = stmt.executeUpdate("DELETE FROM account WHERE id=" + account.getId());
             if (i != 1) {
-                System.out.println("Account with id " + account.getId() + " is not deleted.");
+                print("Account with id " + account.getId() + " is not deleted.\n");
             } else {
-                System.out.println("Account with id " + account.getId() + " is deleted.");
+                print("Account with id " + account.getId() + " is deleted.\n");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -127,7 +127,6 @@ public class AccountDao implements Dao<Account> {
     }
 
     private int getRowCount() {
-        Connection connection = getConnection();
         int i = 0;
 
         try {

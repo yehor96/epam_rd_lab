@@ -9,12 +9,17 @@ import java.util.Objects;
 import java.util.Optional;
 
 import static com.epam.test.ht13.ConnectorDb.getConnection;
+import static com.epam.test.ht8.task1.InputOutputHelper.print;
 
 public class ClientDao implements Dao<Client> {
+    public ClientDao(){
+        connection = getConnection();
+    }
+
+    private static Connection connection;
+
     @Override
     public Optional<Client> get(long id) {
-        Connection connection = getConnection();
-
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM client WHERE id=" + id);
@@ -25,12 +30,11 @@ public class ClientDao implements Dao<Client> {
             ex.printStackTrace();
         }
 
-        return null;
+        return Optional.empty();
     }
 
     @Override
     public List<Client> getAll() {
-        Connection connection = getConnection();
         List<Client> clients = new ArrayList<>();
 
         try {
@@ -49,7 +53,6 @@ public class ClientDao implements Dao<Client> {
 
     @Override
     public void save(Client client) {
-        Connection connection = getConnection();
         int clientId = getRowCount() + 1;
 
         try {
@@ -60,9 +63,9 @@ public class ClientDao implements Dao<Client> {
             ps.setString(4, client.getEmail());
             int i = ps.executeUpdate();
             if (i != 1) {
-                System.out.println("Client with id " + clientId + " is not created.");
+                print("Client with id " + clientId + " is not created.\n");
             } else {
-                System.out.println("Client with id " + clientId + " is created.");
+                print("Client with id " + clientId + " is created.\n");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -71,8 +74,6 @@ public class ClientDao implements Dao<Client> {
 
     @Override
     public void update(Client client, String[] params) {
-        Connection connection = getConnection();
-
         client.setName(Objects.requireNonNull(
                 params[0], "Name cannot be null"));
 
@@ -90,9 +91,9 @@ public class ClientDao implements Dao<Client> {
             ps.setInt(4, client.getId());
             int i = ps.executeUpdate();
             if (i != 1) {
-                System.out.println("Client with id " + client.getId() + " is updated.");
+                print("Client with id " + client.getId() + " is updated.\n");
             } else {
-                System.out.println("Client with id " + client.getId() + " is updated.");
+                print("Client with id " + client.getId() + " is updated.\n");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -101,14 +102,13 @@ public class ClientDao implements Dao<Client> {
 
     @Override
     public void delete(Client client) {
-        Connection connection = getConnection();
         try {
             Statement stmt = connection.createStatement();
             int i = stmt.executeUpdate("DELETE FROM client WHERE id=" + client.getId());
             if (i != 1) {
-                System.out.println("Client with id " + client.getId() + " is not deleted.");
+                print("Client with id " + client.getId() + " is not deleted.\n");
             } else {
-                System.out.println("Client with id " + client.getId() + " is deleted.");
+                print("Client with id " + client.getId() + " is deleted.\n");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -127,7 +127,6 @@ public class ClientDao implements Dao<Client> {
     }
 
     private int getRowCount() {
-        Connection connection = getConnection();
         int i = 0;
 
         try {

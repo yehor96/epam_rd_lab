@@ -1,39 +1,37 @@
 package com.epam.test.ht13;
 
+import com.epam.test.ht13.dbhelpers.AccountService;
+import com.epam.test.ht13.dbhelpers.ClientService;
+import com.epam.test.ht13.dbhelpers.DatabaseHelper;
+
 public class Main {
     public static void main(String args[]){
-        /**
-         * SetUp
-         */
-        DatabaseHelper helper = new DatabaseHelper();
+        DatabaseHelper.databaseSetUp();
+        AccountService accountService = new AccountService();
+        ClientService clientService = new ClientService();
         int idGet = 1;
         int idCreateClient = 3;
         int idCreatedAccount = 4;
 
-        /**
-         * Accounts
-         */
-        helper.getInfoAboutAccount(idGet);
+        accountService.getInfoAboutAccount(idGet);
 
-        helper.getInfoAboutAllAccounts();
+        accountService.getInfoAboutAllAccounts();
 
-        helper.createAccount("USD", 250, 2);
+        accountService.createAccount("USD", 250, 2);
 
-        helper.updateAccount(idCreatedAccount, "EUR", 99, 1);
+        accountService.updateAccount(idCreatedAccount, "EUR", 99, 1);
 
-        helper.deleteAccount(idCreatedAccount);
+        accountService.deleteAccount(idCreatedAccount);
 
-        /**
-        * Accounts
-        */
-        helper.getInfoAboutClient(idGet);
 
-        helper.getInfoAboutAllClients();
+        clientService.getInfoAboutClient(idGet);
 
-        helper.createClient("Martin", "Kirks", "kirkson00@email.com");
+        clientService.getInfoAboutAllClients();
 
-        helper.updateClient(idCreateClient, "Martin", "Kirkson", "kirkson@email.com");
+        clientService.createClient("Martin", "Kirks", "kirkson00@email.com");
 
-        helper.deleteClient(idCreateClient);
+        clientService.updateClient(idCreateClient, "Martin", "Kirkson", "kirkson@email.com");
+
+        clientService.deleteClient(idCreateClient);
     }
 }
