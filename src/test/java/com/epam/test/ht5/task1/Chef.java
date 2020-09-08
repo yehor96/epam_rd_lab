@@ -1,9 +1,14 @@
 package com.epam.test.ht5.task1;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Chef {
-    private Salad salad;
+public class Chef implements Serializable {
+    private transient Salad salad;
+
+    public void setSalad(Salad salad){
+        this.salad = salad;
+    }
 
     public Salad cookSalad(){
         salad = new Salad();
@@ -15,6 +20,7 @@ public class Chef {
         salad.ingredients[3] = new Pepper();
         salad.ingredients[4] = new Garlic();
 
+        salad.mixUpSalad();
         return salad;
     }
 
@@ -26,10 +32,6 @@ public class Chef {
     }
 
     public int getCalories(Salad salad){
-        for(var each : salad.ingredients) {
-            salad.calories += each.getCalories();
-        }
-
         return salad.calories;
     }
 

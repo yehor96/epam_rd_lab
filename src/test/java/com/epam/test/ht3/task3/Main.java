@@ -26,7 +26,7 @@ public class Main {
     }
 
     public static void getLogLevel(){
-        boolean flag = false;
+        boolean correctEntry = false;
         Scanner scanner = new Scanner(System.in);
         String prompt = "Enter one of digits for setting log level: \n" +
                 "0 - for 'OFF';\n" +
@@ -45,43 +45,43 @@ public class Main {
 
             switch(level) {
                 case "-1":
-                    flag = true;
+                    correctEntry = true;
                     break;
                 case "0":
                     Configurator.setLevel("com.epam.test.ht3.task3.Calculator", Level.OFF);
-                    flag = true;
+                    correctEntry = true;
                     break;
                 case "1":
                     Configurator.setLevel("com.epam.test.ht3.task3.Calculator", Level.FATAL);
-                    flag = true;
+                    correctEntry = true;
                     break;
                 case "2":
                     Configurator.setLevel("com.epam.test.ht3.task3.Calculator", Level.ERROR);
-                    flag = true;
+                    correctEntry = true;
                     break;
                 case "3":
                     Configurator.setLevel("com.epam.test.ht3.task3.Calculator", Level.WARN);
-                    flag = true;
+                    correctEntry = true;
                     break;
                 case "4":
                     Configurator.setLevel("com.epam.test.ht3.task3.Calculator", Level.INFO);
-                    flag = true;
+                    correctEntry = true;
                     break;
                 case "5":
                     Configurator.setLevel("com.epam.test.ht3.task3.Calculator", Level.DEBUG);
-                    flag = true;
+                    correctEntry = true;
                     break;
                 case "6":
                     Configurator.setLevel("com.epam.test.ht3.task3.Calculator", Level.TRACE);
-                    flag = true;
+                    correctEntry = true;
                     break;
                 case "7":
                     Configurator.setLevel("com.epam.test.ht3.task3.Calculator", Level.ALL);
-                    flag = true;
+                    correctEntry = true;
                     break;
                 default:
                     System.out.println("Incorrect Entry! Make sure to enter value within 0 - 7.");
             }
-        }while(!flag);
+        }while(!correctEntry);
     }
 }
