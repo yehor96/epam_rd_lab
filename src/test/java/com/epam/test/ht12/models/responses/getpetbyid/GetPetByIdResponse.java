@@ -13,7 +13,7 @@ public class GetPetByIdResponse {
 	private String name;
 
 	@JsonProperty("id")
-	private int id;
+	private String id;
 
 	@JsonProperty("category")
 	private Category category;
@@ -40,11 +40,11 @@ public class GetPetByIdResponse {
 		return name;
 	}
 
-	public void setId(int id){
+	public void setId(String id){
 		this.id = id;
 	}
 
-	public int getId(){
+	public String getId(){
 		return id;
 	}
 

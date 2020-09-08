@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class OrderModel {
 
 	@JsonProperty("petId")
-	private int petId;
+	private long petId;
 
 	@JsonProperty("quantity")
 	private int quantity;
 
 	@JsonProperty("id")
-	private int id;
+	private long id;
 
 	@JsonProperty("shipDate")
 	private String shipDate;
@@ -22,11 +22,11 @@ public class OrderModel {
 	@JsonProperty("status")
 	private String status;
 
-	public void setPetId(int petId){
+	public void setPetId(long petId){
 		this.petId = petId;
 	}
 
-	public int getPetId(){
+	public long getPetId(){
 		return petId;
 	}
 
@@ -38,11 +38,11 @@ public class OrderModel {
 		return quantity;
 	}
 
-	public void setId(int id){
+	public void setId(long id){
 		this.id = id;
 	}
 
-	public int getId(){
+	public long getId(){
 		return id;
 	}
 

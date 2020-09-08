@@ -20,7 +20,7 @@ public class UserModel{
 	private String phone;
 
 	@JsonProperty("id")
-	private int id;
+	private long id;
 
 	@JsonProperty("email")
 	private String email;
@@ -68,11 +68,11 @@ public class UserModel{
 		return phone;
 	}
 
-	public void setId(int id){
+	public void setId(long id){
 		this.id = id;
 	}
 
-	public int getId(){
+	public long getId(){
 		return id;
 	}
 

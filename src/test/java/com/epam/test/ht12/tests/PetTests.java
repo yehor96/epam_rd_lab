@@ -7,12 +7,12 @@ import com.epam.test.ht12.models.responses.getpetbyid.GetPetByIdResponse;
 import com.epam.test.ht12.services.PetService;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PetTests {
-    private static final String BASE_URL = "https://petstore.swagger.io/v2/";
-
-    private PetService petService = new PetService(BASE_URL);
+    private PetService petService = new PetService();
 
     @Test
     void testUploadImageToPet(){
@@ -36,7 +36,7 @@ public class PetTests {
     }
 
     @Test
-    void testGetPetById(){
+    void testGetPetById() throws Exception {
         //GIVEN
         String name = "yeh_test_01";
         int id = 10001;
@@ -50,14 +50,14 @@ public class PetTests {
         GetPetByIdResponse getPetByIdResponse = petService.getPetById(id);
 
         //THEN
-        assertThat(getPetByIdResponse.getId()).isEqualTo(id);
+        assertThat(getPetByIdResponse.getId()).isEqualTo(String.valueOf(id));
         assertThat(getPetByIdResponse.getName()).isEqualTo(name);
 
         petService.deletePetById(id);
     }
 
     @Test
-    void testUpdatePet(){
+    void testUpdatePet() throws Exception {
         //GIVEN
         int id = 10004;
         String nameBeforeUpd = "yeh_test_04";
@@ -80,7 +80,7 @@ public class PetTests {
     }
 
     @Test
-    void testCreatePet(){
+    void testCreatePet() {
         //GIVEN
         String name = "yeh_test_02";
         int id = 10002;
@@ -100,7 +100,7 @@ public class PetTests {
     }
 
     @Test
-    void testDeletePetById(){
+    void testDeletePetById() {
         //GIVEN
         String name = "yeh_test_03";
         int id = 10003;
@@ -118,7 +118,7 @@ public class PetTests {
     }
 
     @Test
-    void testUpdatePetWithFormData(){
+    void testUpdatePetWithFormData() {
         //GIVEN
         int id = 10004;
         String nameBeforeUpd = "yeh_test_04";
@@ -165,14 +165,9 @@ public class PetTests {
         petService.createPet(createPetRequest);
 
         //WHEN
-        GetPetByIdResponse getPetsByStatusResponse = null;
-        GetPetByIdResponse[] responses = petService.getPetsByStatus(status);
-        for(var each : responses){
-            if(each.getId() == id){
-                getPetsByStatusResponse = each;
-                break;
-            }
-        }
+        GetPetByIdResponse getPetsByStatusResponse = Arrays
+                .stream(petService.getPetsByStatus(status))
+                .filter(each -> each.getId().equals(String.valueOf(id))).findFirst().orElseThrow();
 
         //THEN
         assertThat(getPetsByStatusResponse.getName()).isEqualTo(name);

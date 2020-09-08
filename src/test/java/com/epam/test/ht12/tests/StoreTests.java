@@ -10,12 +10,10 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StoreTests {
-    private static final String BASE_URL = "https://petstore.swagger.io/v2/";
-
-    private StoreService storeService = new StoreService(BASE_URL);
+    private StoreService storeService = new StoreService();
 
     @Test
-    void testCreateOrder(){
+    void testCreateOrder() {
         //GIVEN
         int petId = 10001;
         String petName = "yeh_test_01";
@@ -40,7 +38,7 @@ public class StoreTests {
     }
 
     @Test
-    void testGetOrderById(){
+    void testGetOrderById() {
         //GIVEN
         int petId = 10001;
         int orderId = 5;
@@ -69,7 +67,7 @@ public class StoreTests {
     }
 
     @Test
-    void testDeleteOrderById(){
+    void testDeleteOrderById() {
         //GIVEN
         int petId = 10001;
         int orderId = 5;

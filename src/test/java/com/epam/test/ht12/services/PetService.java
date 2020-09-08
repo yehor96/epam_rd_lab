@@ -10,46 +10,38 @@ import io.restassured.response.Response;
 
 import java.io.File;
 
-public class PetService {
-    private static String URL;
-    private static final String CONTROLLER = "pet/";
+public class PetService extends BaseService {
+    private static final String PATH = "pet/";
 
-    public PetService(String baseUrl){
-        URL = baseUrl + CONTROLLER;
-    }
+    private static String URL = BASE_URL + PATH;
 
     public ConfirmationModel uploadImageToPet(String path, String format, int id){
-        return RestAssured.given().header("Content-Type", ContentType.JSON)
+        return RestAssured.given()
+                .header("Content-Type", ContentType.JSON)
                 .header("Content-Type", "multipart/form-data")
                 .multiPart("file", new File(path), format)
                 .log().all()
                 .when().post(URL + id + "/uploadImage")
-                .then().log().all().statusCode(200).extract().as(ConfirmationModel.class);
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().as(ConfirmationModel.class);
     }
 
     public GetPetByIdResponse getPetById(int id){
-        return RestAssured.given().header("Content-Type", ContentType.JSON).log().all()
-                .when().get(URL + id)
-                .then().log().all().statusCode(200).extract().as(GetPetByIdResponse.class);
+        return (GetPetByIdResponse) doGet(URL + id, GetPetByIdResponse.class);
     }
 
     public PetModel createPet(CreatePetRequest createPetRequest){
-        return RestAssured.given().header("Content-Type", ContentType.JSON).body(createPetRequest).log().all()
-                .when().post(URL)
-                .then().log().all().statusCode(200).extract().as(PetModel.class);
+        return (PetModel) doPost(createPetRequest, URL, PetModel.class);
     }
 
     public PetModel updatePet(CreatePetRequest createPetRequest){
-        return RestAssured.given().header("Content-Type", ContentType.JSON).body(createPetRequest).log().all()
-                .when().put(URL)
-                .then().log().all().statusCode(200).extract().as(PetModel.class);
+        return (PetModel) doPut(createPetRequest, URL, PetModel.class);
     }
 
-    public ConfirmationModel deletePetById(int id){
-        return RestAssured.given().header("Content-Type", ContentType.JSON).header("api_key", "special-key")
-                .log().all()
-                .when().delete(URL + id)
-                .then().log().all().statusCode(200).extract().as(ConfirmationModel.class);
+    public ConfirmationModel deletePetById(int id) {
+        return doDelete(URL + id);
     }
 
     public ConfirmationModel updatePetWithFormData(int id, String nameAfterUpd, String statusAfterUpd) {
@@ -69,7 +61,10 @@ public class PetService {
                 .queryParam("status", status)
                 .log().all()
                 .when().get(URL + "findByStatus")
-                .then().log().all().statusCode(200).extract().response();
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
 
         return response.as(GetPetByIdResponse[].class);
     }

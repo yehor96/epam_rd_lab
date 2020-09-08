@@ -10,12 +10,10 @@ import java.util.ArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserTest {
-    private static final String BASE_URL = "https://petstore.swagger.io/v2/";
-
-    private UserService userService = new UserService(BASE_URL);
+    private final UserService userService = new UserService();
 
     @Test
-    void testCreateUser(){
+    void testCreateUser() {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";
@@ -35,7 +33,7 @@ public class UserTest {
     }
 
     @Test
-    void testDeleteUserByUsername(){
+    void testDeleteUserByUsername() {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";
@@ -139,7 +137,7 @@ public class UserTest {
     }
 
     @Test
-    void testCreateUserWithArray(){
+    void testCreateUserWithArray() {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";
@@ -173,7 +171,7 @@ public class UserTest {
     }
 
     @Test
-    void testCreateUserWithList(){
+    void testCreateUserWithList() {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";
