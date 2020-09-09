@@ -1,6 +1,7 @@
 package com.epam.test.ht13.dbhelpers;
 
 import com.epam.test.ht13.dao.AccountDao;
+import com.epam.test.ht13.dao.Dao;
 import com.epam.test.ht13.dbmodels.Account;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class AccountService {
         accountDao = new AccountDao();
     }
 
-    private static AccountDao accountDao;
+    private static Dao accountDao;
 
     public void getInfoAboutAccount(int id ){
         Optional<Account> account = accountDao.get(id);

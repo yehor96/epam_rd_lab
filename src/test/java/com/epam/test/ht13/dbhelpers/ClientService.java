@@ -1,6 +1,7 @@
 package com.epam.test.ht13.dbhelpers;
 
 import com.epam.test.ht13.dao.ClientDao;
+import com.epam.test.ht13.dao.Dao;
 import com.epam.test.ht13.dbmodels.Client;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class ClientService {
         clientDao = new ClientDao();
     }
 
-    private static ClientDao clientDao;
+    private static Dao clientDao;
 
     public void getInfoAboutClient(int id){
         Optional<Client> client = clientDao.get(id);
