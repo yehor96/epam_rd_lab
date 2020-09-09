@@ -3,7 +3,6 @@ package com.epam.test.ht12.services;
 import com.epam.test.ht12.models.requests.createuser.UserModel;
 import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 
 import java.util.ArrayList;
 
@@ -21,21 +20,12 @@ public class UserService extends BaseService {
     }
 
     public UserModel getUserByUsername(String username) {
-        return RestAssured.given()
-                .header("Content-Type", ContentType.JSON)
-                .log().all()
-                .when().get(URL + username)
-                .then()
-                .log().all()
-                .statusCode(200)
-                .extract().as(UserModel.class);
+        return (UserModel) doGet(URL + username, UserModel.class);
     }
 
     public ConfirmationModel updateUser(String username, UserModel userUpdateRequest) {
-        return RestAssured.given()
-                .header("Content-Type", ContentType.JSON)
+        return RestAssured.given(requestSpecification())
                 .body(userUpdateRequest)
-                .log().all()
                 .when().put(URL + username)
                 .then()
                 .log().all()
@@ -44,9 +34,7 @@ public class UserService extends BaseService {
     }
 
     public ConfirmationModel login(String username, String password) {
-        return RestAssured.given()
-                .header("Content-Type", ContentType.JSON)
-                .log().all()
+        return RestAssured.given(requestSpecification())
                 .queryParam("username", username)
                 .queryParam("password", password)
                 .when().get(URL + "login/")

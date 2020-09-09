@@ -101,12 +101,12 @@ public class StoreTests {
         int petId = 10001;
         int orderId = 5;
         String petName = "yeh_test_01";
-        String status = "sold";
+        String status = "available";
 
         CreatePetRequest createPetRequest = new CreatePetRequest();
         createPetRequest.setId(petId);
         createPetRequest.setName(petName);
-        createPetRequest.setStatus("complete");
+        createPetRequest.setStatus(status);
 
         OrderModel createOrderRequest = new OrderModel();
         createOrderRequest.setStatus(status);
@@ -118,6 +118,6 @@ public class StoreTests {
         GetInventoryResponse getInventoryResponse = storeService.getInventory();
 
         //THEN
-        assertThat(getInventoryResponse.getSold()).isGreaterThan(0);
+        assertThat(getInventoryResponse.getAvailable()).isGreaterThan(0);
     }
 }

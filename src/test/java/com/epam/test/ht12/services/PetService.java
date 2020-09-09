@@ -5,7 +5,6 @@ import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
 import com.epam.test.ht12.models.responses.createpet.PetModel;
 import com.epam.test.ht12.models.responses.getpetbyid.GetPetByIdResponse;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import java.io.File;
@@ -16,11 +15,9 @@ public class PetService extends BaseService {
     private static String URL = BASE_URL + PATH;
 
     public ConfirmationModel uploadImageToPet(String path, String format, int id){
-        return RestAssured.given()
-                .header("Content-Type", ContentType.JSON)
+        return RestAssured.given(requestSpecification())
                 .header("Content-Type", "multipart/form-data")
                 .multiPart("file", new File(path), format)
-                .log().all()
                 .when().post(URL + id + "/uploadImage")
                 .then()
                 .log().all()
@@ -45,21 +42,17 @@ public class PetService extends BaseService {
     }
 
     public ConfirmationModel updatePetWithFormData(int id, String nameAfterUpd, String statusAfterUpd) {
-        return RestAssured.given()
-                .header("Content-Type", ContentType.JSON)
+        return RestAssured.given(requestSpecification())
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .formParam("name", nameAfterUpd)
                 .formParam("status", statusAfterUpd)
-                .log().all()
                 .when().post(URL + id)
                 .then().log().all().statusCode(200).extract().as(ConfirmationModel.class);
     }
 
     public GetPetByIdResponse[] getPetsByStatus(String status) {
-        Response response = RestAssured.given()
-                .header("Content-Type", ContentType.JSON)
+        Response response = RestAssured.given(requestSpecification())
                 .queryParam("status", status)
-                .log().all()
                 .when().get(URL + "findByStatus")
                 .then()
                 .log().all()
