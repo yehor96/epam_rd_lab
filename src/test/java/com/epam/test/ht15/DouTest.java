@@ -9,20 +9,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.epam.test.ht15.Locators.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DouTest {
     private static final String BASE_URL = "https://dou.ua/";
-    private static final String LOGIN_MENU = "login-link";
-    private static final String CHECKBOX = "agree-checkbox";
-    private static final String LOGIN_OPTIONS_MENU = ".b-login-dialog.__disabled";
-    private static final String JOBS_SECTION = "//a[@href='https://jobs.dou.ua/']";
-    private static final String JOB_SEARCH_FIELD = ".job";
-    private static final String COMPANY_ICON = ".company";
-
-    private static final String SEARCH_QUERY = "EPAM";
-
     private static WebDriver driver;
 
     @BeforeAll
@@ -37,7 +33,7 @@ public class DouTest {
     }
 
     @Test
-    void testImpossibleToLogInWithoutTermsCheckbox(){
+    void testLoginOptionsDisabledWithoutTermsCheckbox(){
         driver.findElement(By.id(LOGIN_MENU)).click();
         driver.findElement(By.id(CHECKBOX)).click();
 
@@ -56,6 +52,45 @@ public class DouTest {
         String actualCompanyName = driver.findElement(By.cssSelector(COMPANY_ICON)).getText();
 
         assertTrue(actualCompanyName.contains(SEARCH_QUERY));
+    }
+
+    @Test
+    void testQAFestLinkOnBanner(){
+        driver.findElement(By.cssSelector(HEADER_BANNER_LINK)).click();
+
+        assertTrue(driver.getCurrentUrl().contains(EXTERNAL_LINK_TEXT));
+    }
+
+    @Test
+    void testItIsPossibleToCloseHeaderBanner(){
+        WebElement banner = driver.findElement(By.cssSelector(HEADER_BANNER));
+        driver.findElement(By.cssSelector(HEADER_BANNER_CLOSING_BUTTON)).click();
+
+        new WebDriverWait(driver, 5)
+        .until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(HEADER_BANNER)));
+
+        assertFalse(banner.isDisplayed());
+    }
+
+    @Test
+    void testItIsPossibleToSearchJobsByPosition(){
+        driver.findElement(By.xpath(JOBS_SECTION)).click();
+
+        Select dropDown = new Select(driver.findElement(By.cssSelector(JOB_SEARCH_DROPDOWN)));
+        dropDown.selectByVisibleText(SEARCH_LANG);
+
+        String actualText = driver.findElement(By.cssSelector(JOB_SEARCH_RESULT)).getText();
+
+        assertTrue(actualText.contains(SEARCH_LANG));
+    }
+
+    @Test
+    void testEpamHiresALotOfJuniors(){
+        driver.findElement(By.xpath(JUNIOR_DIGEST_SECTION)).click();
+
+        int actualValue = Integer.parseInt(driver.findElement(By.xpath(EPAM_TABLE_VALUE)).getText());
+
+        assertTrue(actualValue > 500);
     }
 
     @AfterEach
