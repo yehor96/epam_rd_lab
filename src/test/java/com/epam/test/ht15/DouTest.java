@@ -22,8 +22,8 @@ public class DouTest {
 
     @BeforeAll
     static void beforeAll(){
-        driver = new ChromeDriver();
         WebDriverManager.chromedriver().browserVersion("85").setup();
+        driver = new ChromeDriver();
     }
 
     @BeforeEach
