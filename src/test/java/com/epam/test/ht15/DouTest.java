@@ -1,7 +1,6 @@
 package com.epam.test.ht15;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,12 +22,12 @@ public class DouTest {
 
     @BeforeAll
     static void beforeAll(){
+        driver = new ChromeDriver();
         WebDriverManager.chromedriver().browserVersion("85").setup();
     }
 
     @BeforeEach
     void setUp(){
-        driver = new ChromeDriver();
         driver.get(BASE_URL);
     }
 
@@ -42,6 +41,8 @@ public class DouTest {
 
     @Test
     void testSearchByCompany(){
+        final String SEARCH_QUERY = "EPAM";
+
         driver.findElement(By.xpath(JOBS_SECTION)).click();
 
         WebElement searchField = driver.findElement(By.cssSelector(JOB_SEARCH_FIELD));
@@ -56,6 +57,8 @@ public class DouTest {
 
     @Test
     void testQAFestLinkOnBanner(){
+        final String EXTERNAL_LINK_TEXT = "qafest";
+
         driver.findElement(By.cssSelector(HEADER_BANNER_LINK)).click();
 
         assertTrue(driver.getCurrentUrl().contains(EXTERNAL_LINK_TEXT));
@@ -74,6 +77,8 @@ public class DouTest {
 
     @Test
     void testItIsPossibleToSearchJobsByPosition(){
+        final String SEARCH_LANG = "Java";
+
         driver.findElement(By.xpath(JOBS_SECTION)).click();
 
         Select dropDown = new Select(driver.findElement(By.cssSelector(JOB_SEARCH_DROPDOWN)));
@@ -91,10 +96,5 @@ public class DouTest {
         int actualValue = Integer.parseInt(driver.findElement(By.xpath(EPAM_TABLE_VALUE)).getText());
 
         assertTrue(actualValue > 500);
-    }
-
-    @AfterEach
-    void destroy(){
-        driver.close();
     }
 }
