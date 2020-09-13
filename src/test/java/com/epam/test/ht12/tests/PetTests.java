@@ -7,6 +7,7 @@ import com.epam.test.ht12.models.responses.getpetbyid.GetPetByIdResponse;
 import com.epam.test.ht12.services.PetService;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,7 +16,7 @@ public class PetTests {
     private PetService petService = new PetService();
 
     @Test
-    void testUploadImageToPet(){
+    void testUploadImageToPet() throws IOException {
         //GIVEN
         String name = "yeh_test_01";
         int id = 10001;
@@ -80,7 +81,7 @@ public class PetTests {
     }
 
     @Test
-    void testCreatePet() {
+    void testCreatePet() throws IOException {
         //GIVEN
         String name = "yeh_test_02";
         int id = 10002;
@@ -100,7 +101,7 @@ public class PetTests {
     }
 
     @Test
-    void testDeletePetById() {
+    void testDeletePetById() throws IOException {
         //GIVEN
         String name = "yeh_test_03";
         int id = 10003;
@@ -118,7 +119,7 @@ public class PetTests {
     }
 
     @Test
-    void testUpdatePetWithFormData() {
+    void testUpdatePetWithFormData() throws IOException {
         //GIVEN
         int id = 10004;
         String nameBeforeUpd = "yeh_test_04";
@@ -146,13 +147,8 @@ public class PetTests {
         petService.deletePetById(id);
     }
 
-    /**
-     * This test does not work
-     * Because I was not able to figure out how to map array of objects in json
-     * on array of GetPetByIdResponse objects
-     */
     @Test
-    void testGetPetByStatus() {
+    void testGetPetByStatus() throws IOException {
         //GIVEN
         String name = "yeh_test_01";
         int id = 10001;

@@ -5,6 +5,7 @@ import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
 import com.epam.test.ht12.services.UserService;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -13,7 +14,7 @@ public class UserTest {
     private final UserService userService = new UserService();
 
     @Test
-    void testCreateUser() {
+    void testCreateUser() throws IOException {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";
@@ -33,7 +34,7 @@ public class UserTest {
     }
 
     @Test
-    void testDeleteUserByUsername() {
+    void testDeleteUserByUsername() throws IOException {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";
@@ -53,7 +54,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetUserByUsername(){
+    void testGetUserByUsername() throws IOException {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";
@@ -75,7 +76,7 @@ public class UserTest {
     }
 
     @Test
-    void testUpdateUser(){
+    void testUpdateUser() throws IOException {
         //GIVEN
         String usernameBeforeUpdate = "user_test";
         String emailBeforeUpdate = "test@test.com";
@@ -108,7 +109,7 @@ public class UserTest {
     }
 
     @Test
-    void testLogin(){
+    void testLogin() throws IOException {
         //GIVEN
         String username = "yehUser";
         String password = "pass";
@@ -127,7 +128,7 @@ public class UserTest {
     }
 
     @Test
-    void testLogout(){
+    void testLogout() throws IOException {
         //WHEN
         ConfirmationModel logoutResponse = userService.logout();
 
@@ -137,7 +138,7 @@ public class UserTest {
     }
 
     @Test
-    void testCreateUserWithArray() {
+    void testCreateUserWithArray() throws IOException {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";
@@ -171,7 +172,7 @@ public class UserTest {
     }
 
     @Test
-    void testCreateUserWithList() {
+    void testCreateUserWithList() throws IOException {
         //GIVEN
         String username = "user_test";
         String email = "test@test.com";

@@ -7,13 +7,15 @@ import com.epam.test.ht12.models.responses.getinventory.GetInventoryResponse;
 import com.epam.test.ht12.services.StoreService;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StoreTests {
     private StoreService storeService = new StoreService();
 
     @Test
-    void testCreateOrder() {
+    void testCreateOrder() throws IOException {
         //GIVEN
         int petId = 10001;
         String petName = "yeh_test_01";
@@ -38,7 +40,7 @@ public class StoreTests {
     }
 
     @Test
-    void testGetOrderById() {
+    void testGetOrderById() throws IOException {
         //GIVEN
         int petId = 10001;
         int orderId = 5;
@@ -67,7 +69,7 @@ public class StoreTests {
     }
 
     @Test
-    void testDeleteOrderById() {
+    void testDeleteOrderById() throws IOException {
         //GIVEN
         int petId = 10001;
         int orderId = 5;
@@ -96,7 +98,7 @@ public class StoreTests {
      * Once it happens, it is necessary to update response model.
      */
     @Test
-    void testGetInventory(){
+    void testGetInventory() throws IOException {
         //GIVEN
         int petId = 10001;
         int orderId = 5;

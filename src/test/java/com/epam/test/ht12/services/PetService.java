@@ -8,6 +8,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 import java.io.File;
+import java.io.IOException;
 
 public class PetService extends BaseService {
     private static final String PATH = "pet/";
@@ -25,19 +26,19 @@ public class PetService extends BaseService {
                 .extract().as(ConfirmationModel.class);
     }
 
-    public GetPetByIdResponse getPetById(int id){
+    public GetPetByIdResponse getPetById(int id) throws IOException {
         return (GetPetByIdResponse) doGet(URL + id, GetPetByIdResponse.class);
     }
 
-    public PetModel createPet(CreatePetRequest createPetRequest){
+    public PetModel createPet(CreatePetRequest createPetRequest) throws IOException {
         return (PetModel) doPost(createPetRequest, URL, PetModel.class);
     }
 
-    public PetModel updatePet(CreatePetRequest createPetRequest){
+    public PetModel updatePet(CreatePetRequest createPetRequest) throws IOException {
         return (PetModel) doPut(createPetRequest, URL, PetModel.class);
     }
 
-    public ConfirmationModel deletePetById(int id) {
+    public ConfirmationModel deletePetById(int id) throws IOException {
         return doDelete(URL + id);
     }
 

@@ -4,6 +4,7 @@ import com.epam.test.ht12.models.requests.createuser.UserModel;
 import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
 import io.restassured.RestAssured;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class UserService extends BaseService {
@@ -11,15 +12,15 @@ public class UserService extends BaseService {
 
     private static String URL = BASE_URL + PATH;
 
-    public ConfirmationModel createUser(UserModel createUserRequest) {
+    public ConfirmationModel createUser(UserModel createUserRequest) throws IOException {
         return (ConfirmationModel) doPost(createUserRequest, URL, ConfirmationModel.class);
     }
 
-    public ConfirmationModel deleteUserByUsername(String username)  {
+    public ConfirmationModel deleteUserByUsername(String username) throws IOException {
         return doDelete(URL + username);
     }
 
-    public UserModel getUserByUsername(String username) {
+    public UserModel getUserByUsername(String username) throws IOException {
         return (UserModel) doGet(URL + username, UserModel.class);
     }
 
@@ -44,16 +45,16 @@ public class UserService extends BaseService {
                 .extract().as(ConfirmationModel.class);
     }
 
-    public ConfirmationModel logout() {
+    public ConfirmationModel logout() throws IOException {
         return (ConfirmationModel) doGet(URL + "logout/", ConfirmationModel.class);
     }
 
-    public ConfirmationModel createUserWithArray(UserModel[] createUserRequest) {
+    public ConfirmationModel createUserWithArray(UserModel[] createUserRequest) throws IOException {
         return (ConfirmationModel) doPost
                 (createUserRequest, URL + "createWithArray", ConfirmationModel.class);
     }
 
-    public ConfirmationModel createUserWithList(ArrayList<UserModel> createUserWithListRequest) {
+    public ConfirmationModel createUserWithList(ArrayList<UserModel> createUserWithListRequest) throws IOException {
         return (ConfirmationModel) doPost
                 (createUserWithListRequest, URL + "createWithList", ConfirmationModel.class);
     }
