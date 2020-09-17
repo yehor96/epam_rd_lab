@@ -1,15 +1,44 @@
 package com.epam.test.ht17.pages;
 
+import com.epam.test.ht17.fragments.Footer;
+import com.epam.test.ht17.fragments.Header;
 import com.epam.test.ht17.fragments.SearchForm;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Button;
 
 public class HomePage extends BasePage {
     @FindBy(id = "searchmain")
     private SearchForm searchForm;
 
+    @FindBy(css = ".navi")
+    private Header header;
+
+    @FindBy(id = "lastwrapper")
+    private Footer footer;
+
+    @FindBy(id = "homeShowAllAds")
+    private Button showAll;
+
     public HomePage(WebDriver driver) {
         super(driver);
+    }
+
+    public String getCurrentLanguage(){
+        return header.getMyProfileText().equals("Мій профіль") ? "Ukrainian" : "Russian";
+    }
+
+    public void setLanguage(String language){
+        if(language.contains("Russian")){
+            header.setRussianLanguage();
+        }
+        if(language.contains("Ukrainian")){
+            header.setUkrainianLanguage();
+        }
+    }
+
+    public void clickOnNewPostButton(){
+        header.clickOnNewPostRequestButton();
     }
 
     public SearchResultPage searchInfo(String query) {
@@ -18,10 +47,17 @@ public class HomePage extends BasePage {
         return new SearchResultPage(driver);
     }
 
-    public SearchResultPage searchInfo(String query, String location) {
-        searchForm.inputTextInSearchField(query);
-        searchForm.inputTextInLocationField(location);
-        searchForm.clickSubmitButton();
+    public SignInPage clickOnMyProfileButton(){
+        header.clickMyProfileButton();
+        return new SignInPage(driver);
+    }
+
+    public void clickOnCareersButton(){
+        footer.clickOnCareersAtOlxGroupButton();
+    }
+
+    public SearchResultPage clickOnShowAllButton(){
+        showAll.click();
         return new SearchResultPage(driver);
     }
 }

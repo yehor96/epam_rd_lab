@@ -7,11 +7,8 @@ import ru.yandex.qatools.htmlelements.element.TextInput;
 
 @FindBy(id = "searchmain")
 public class SearchForm extends HtmlElement {
-    @FindBy(xpath = "//div[@class=\"clearbox rel fleft input-container\"]")
+    @FindBy(css = ".clearbox.rel input")
     private TextInput searchField;
-
-    @FindBy(id = "locationBox")
-    private TextInput locationField;
 
     @FindBy(id = "submit-searchmain")
     private Button submitButton;
@@ -21,16 +18,11 @@ public class SearchForm extends HtmlElement {
         searchField.sendKeys(text);
     }
 
-    public void inputTextInLocationField(String text){
-        locationField.clear();
-        locationField.sendKeys(text);
-    }
-
     public void clickSubmitButton(){
         submitButton.click();
     }
 
     public String getSearchFieldContent(){
-        return searchField.getEnteredText();
+        return searchField.getAttribute("value");
     }
 }
