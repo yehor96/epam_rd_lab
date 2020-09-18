@@ -27,8 +27,16 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "//div[@class=\"errorboxContainer\"]/label[@for=\"userPass\"]")
     private WebElement invalidPasswordError;
 
+    @FindBy(className = "login-form__lostpassword")
+    private Button forgetPasswordButton;
+
     public SignInPage(WebDriver driver) {
         super(driver);
+    }
+
+    public ForgetPasswordPage clickForgetPasswordButton(){
+        forgetPasswordButton.click();
+        return new ForgetPasswordPage(driver);
     }
 
     public void setLoginField(String value){

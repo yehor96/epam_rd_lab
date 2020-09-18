@@ -1,14 +1,10 @@
 package com.epam.test.ht17.tests;
 
-import com.epam.test.ht17.pages.HomePage;
+import com.epam.test.ht17.pages.ForgetPasswordPage;
 import com.epam.test.ht17.pages.SearchResultPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.epam.test.ht17.pages.SignInPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -16,26 +12,27 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MainTests {
-    static WebDriver driver;
-    static final String BASE_URL = "https://www.olx.ua/";
+public class MainTests extends BaseTest {
+    @Test
+    void testForgetPassword(){
+        String value = "test@email.com";
 
-    @BeforeClass
-    static void beforeAll(){
-        WebDriverManager.chromedriver().browserVersion("85").setup();
-        driver = new ChromeDriver();
+        SignInPage signInPage = homePage.clickOnMyProfileButton();
+
+        ForgetPasswordPage forgetPasswordPage = signInPage.clickForgetPasswordButton();
+        forgetPasswordPage.fillOutLoginField(value);
+        forgetPasswordPage.clickChangeButton();
+
+        assertTrue(forgetPasswordPage.isNewPassLabelDisplayed());
     }
 
-    @BeforeMethod
-    void setUp(){
-        driver.get(BASE_URL);
-    }
-
+    /**
+     * Failing
+     */
     @Test
     void testSearchByQuery(){
         String query = "Java";
 
-        HomePage homePage = new HomePage(driver);
         SearchResultPage searchResultPage = homePage.searchInfo(query);
 
         searchResultPage.getItemTexts()
@@ -46,7 +43,6 @@ public class MainTests {
 
     @Test
     void testNewPostRequest(){
-        HomePage homePage = new HomePage(driver);
         homePage.clickOnNewPostButton();
 
         new WebDriverWait(driver, 5)
@@ -59,7 +55,6 @@ public class MainTests {
     void testChangeLanguage(){
         String uaLang = "Ukrainian";
         String ruLang = "Russian";
-        HomePage homePage = new HomePage(driver);
 
         homePage.setLanguage(uaLang);
         assertEquals(homePage.getCurrentLanguage(), uaLang);
@@ -69,14 +64,12 @@ public class MainTests {
     }
 
     /**
-     * I do not know why this test fails. It throws NoSuchElementException
-     * but the element is visible.
+     * Failing
      */
     @Test
     void testQueryTextDisplayAfterSearching(){
         String query = "Java";
 
-        HomePage homePage = new HomePage(driver);
         SearchResultPage searchResultPage = homePage.searchInfo(query);
 
         String displayedText = searchResultPage.getSearchFieldContent();
@@ -85,7 +78,6 @@ public class MainTests {
 
     @Test
     void testGetOlxCareers(){
-        HomePage homePage = new HomePage(driver);
         homePage.clickOnCareersButton();
 
         ArrayList<String> windows = new ArrayList<> (driver.getWindowHandles());
@@ -98,9 +90,46 @@ public class MainTests {
 
     @Test
     void testShowAllAds(){
-        HomePage homePage = new HomePage(driver);
         SearchResultPage searchResultPage = homePage.clickOnShowAllButton();
 
         assertTrue(searchResultPage.getListOfItems().size() > 30);
+    }
+
+    @Test
+    void testRegionsListDisplay(){
+        homePage.clickOnRegionsList();
+
+        assertTrue(homePage.isRegionsListDisplayed());
+    }
+
+    /**
+     * Failing
+     */
+    @Test
+    void testSearchByAllRegions(){
+        String value = "Java";
+
+        SearchResultPage searchResultPage = homePage.searchInfoByAllRegions(value);
+        assertTrue(searchResultPage.isAllRegionsDisplayed());
+    }
+
+    @Test
+    void testSearchByEmptyQuery(){
+        SearchResultPage searchResultPage = homePage.clickOnSearchButton();
+
+        assertTrue(searchResultPage.getListOfItems().size() > 30);
+    }
+
+    /**
+     * Failing
+     */
+    @Test
+    void testAddToFavorites() {
+        SearchResultPage searchResultPage = homePage.clickOnSearchButton();
+
+        searchResultPage.addToFavorites(1);
+        searchResultPage.refreshPage();
+
+        assertEquals("1", searchResultPage.getCountOfFavorites());
     }
 }

@@ -24,6 +24,19 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
+    public boolean isRegionsListDisplayed(){
+        return searchForm.isRegionsListDisplayed();
+    }
+
+    public void clickOnRegionsList(){
+        searchForm.clickOnRegionsListButton();
+    }
+
+    public SearchResultPage clickOnSearchButton(){
+        searchForm.clickSubmitButton();
+        return new SearchResultPage(driver);
+    }
+
     public String getCurrentLanguage(){
         return header.getMyProfileText().equals("Мій профіль") ? "Ukrainian" : "Russian";
     }
@@ -43,6 +56,13 @@ public class HomePage extends BasePage {
 
     public SearchResultPage searchInfo(String query) {
         searchForm.inputTextInSearchField(query);
+        searchForm.clickSubmitButton();
+        return new SearchResultPage(driver);
+    }
+
+    public SearchResultPage searchInfoByAllRegions(String query) {
+        searchForm.inputTextInSearchField(query);
+        searchForm.chooseAllRegions();
         searchForm.clickSubmitButton();
         return new SearchResultPage(driver);
     }
