@@ -5,6 +5,7 @@ import com.epam.test.ht12.models.requests.createpet.CreatePetRequest;
 import com.epam.test.ht12.models.responses.commonconfirmation.ConfirmationModel;
 import com.epam.test.ht12.models.responses.getinventory.GetInventoryResponse;
 import com.epam.test.ht12.services.StoreService;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -93,10 +94,7 @@ public class StoreTests {
         assertThat(deleteOrderByIdResponse.getCode()).isEqualTo(200);
     }
 
-    /**
-     * This test fails once someone adds new 'status'.
-     * Once it happens, it is necessary to update response model.
-     */
+    @JsonIgnoreProperties(ignoreUnknown = true)
     @Test
     void testGetInventory() throws IOException {
         //GIVEN
