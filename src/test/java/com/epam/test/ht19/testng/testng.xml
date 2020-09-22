@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+     TestNG allows running tests in parallel with specification of the level
+     where parallelization should be set - class, method, test as well as number of threads.
+     JUnit does not have a feature for parallelization.
+-->
+
+<suite name="MySuite" parallel="classes" thread-count="2">
+    <test name="MyTests">
+        <parameter name="digit" value="5"/>
+        <parameter name="text" value="five"/>
+        <classes>
+            <class name="com.epam.test.ht19.testng.TestParameters"/>
+            <class name="com.epam.test.ht19.testng.BeforeAfter"/>
+        </classes>
+    </test>
+</suite>

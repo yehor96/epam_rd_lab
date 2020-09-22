@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BeforeAfterSuite">
+    <test name="BeforeAfterTests">
+<!--
+     TestNG allows creating test groups that can be ran separately.
+     In this file, "testing" group is defined within BeforeAfter class.
+     Only tests with annotation @Test(groups = "testing") will be ran when "testing" group is used.
+-->
+        <groups>
+            <run>
+                <include name="testing" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.epam.test.ht19.testng.BeforeAfter"/>
+        </classes>
+    </test>
+</suite>
