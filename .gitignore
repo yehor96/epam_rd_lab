@@ -11,7 +11,6 @@
 # Sensitive or high-churn files
 .idea/
 
-
 # CMake
 cmake-build-*/
 
@@ -30,3 +29,6 @@ logs/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
+
+#.iml files
+.iml
