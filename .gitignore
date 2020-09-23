@@ -31,4 +31,7 @@ logs/
 .idea_modules/
 
 #.iml files
-.iml
+.iml/
+
+#screenshots
+additional_files/screenshots
