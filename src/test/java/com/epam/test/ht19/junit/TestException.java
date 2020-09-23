@@ -1,6 +1,6 @@
 package com.epam.test.ht19.junit;
 
-import com.epam.test.ht19.common.ThrowException;
+import com.epam.test.ht19.common.ExceptionMaker;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,7 +12,7 @@ public class TestException {
      */
     @Test
     public void testThrowException() {
-        assertThrows(ArithmeticException.class, ThrowException::arithmetic);
+        assertThrows(ArithmeticException.class, ExceptionMaker::arithmetic);
     }
 
 }

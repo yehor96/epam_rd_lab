@@ -1,6 +1,6 @@
 package com.epam.test.ht19.testng;
 
-import com.epam.test.ht19.common.ThrowException;
+import com.epam.test.ht19.common.ExceptionMaker;
 import org.testng.annotations.Test;
 
 
@@ -10,6 +10,6 @@ public class TestException {
      */
     @Test(expectedExceptions = ArithmeticException.class)
     public void testThrowException() {
-        ThrowException.arithmetic();
+        ExceptionMaker.getArithmeticException();
     }
 }

@@ -29,7 +29,6 @@ public class BeforeAfter {
         System.out.println("BeforeEach");
     }
 
-
     @AfterMethod
     void tearDownEach(){
         System.out.println("AfterMethod");
