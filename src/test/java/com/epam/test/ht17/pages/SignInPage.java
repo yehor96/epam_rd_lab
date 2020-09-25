@@ -24,7 +24,7 @@ public class SignInPage extends BasePage {
     @FindBy(css = "label.error")
     private WebElement invalidLoginError;
 
-    @FindBy(xpath = "//div[@class=\"errorboxContainer\"]/label[@for=\"userPass\"]")
+    @FindBy(xpath = "//div[@class='errorboxContainer']/label[@for='userPass']")
     private WebElement invalidPasswordError;
 
     @FindBy(className = "login-form__lostpassword")

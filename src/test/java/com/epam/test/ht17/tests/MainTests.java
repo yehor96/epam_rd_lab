@@ -26,19 +26,14 @@ public class MainTests extends BaseTest {
         assertTrue(forgetPasswordPage.isNewPassLabelDisplayed());
     }
 
-    /**
-     * Failing
-     */
     @Test
     void testSearchByQuery(){
-        String query = "Java";
+        String query = "java";
 
         SearchResultPage searchResultPage = homePage.searchInfo(query);
 
         searchResultPage.getItemTexts()
-                .forEach(text -> assertTrue(
-                        text.contains(query) ||
-                                text.contains(query.toLowerCase())));
+                .forEach(text -> assertTrue(text.toLowerCase().contains(query)));
     }
 
     @Test
@@ -72,8 +67,7 @@ public class MainTests extends BaseTest {
 
         SearchResultPage searchResultPage = homePage.searchInfo(query);
 
-        String displayedText = searchResultPage.getSearchFieldContent();
-        assertEquals(displayedText, query);
+        assertTrue(searchResultPage.isSearchFieldContainsValue(query));
     }
 
     @Test
@@ -120,9 +114,6 @@ public class MainTests extends BaseTest {
         assertTrue(searchResultPage.getListOfItems().size() > 30);
     }
 
-    /**
-     * Failing
-     */
     @Test
     void testAddToFavorites() {
         SearchResultPage searchResultPage = homePage.clickOnSearchButton();

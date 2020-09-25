@@ -1,5 +1,6 @@
 package com.epam.test.ht17.fragments;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
@@ -17,6 +18,12 @@ public class SearchForm extends HtmlElement {
     @FindBy(id = "cityField")
     private TextInput regionsListButton;
 
+    @FindBy(xpath = "//input[@id='cityField' and @defaultval='Вся Україна']")
+    private TextInput allRegionsUAButton;
+
+    @FindBy(xpath = "//input[@id='cityField' and @defaultval='Вся Украина']")
+    private TextInput allRegionsRUButton;
+
     @FindBy(id = "regions-layer")
     private Table regionsList;
 
@@ -26,9 +33,9 @@ public class SearchForm extends HtmlElement {
     public boolean isAllRegionsDisplayed(String lang){
         return lang.equals("Ukrainian")
                 ?
-                regionsListButton.getAttribute("defaultval").equals("Вся Україна")
+                allRegionsUAButton.isDisplayed()
                 :
-                regionsListButton.getAttribute("defaultval").equals("Вся Украина");
+                allRegionsRUButton.isDisplayed();
     }
 
     public void clickOnRegionsListButton(){
@@ -49,8 +56,8 @@ public class SearchForm extends HtmlElement {
         submitButton.click();
     }
 
-    public String getSearchFieldContent(){
-        return searchField.getAttribute("value");
+    public boolean isSearchFieldContainsValue(String value){
+        return findElement(By.xpath("//input[@id='search-text' and @value='" + value + "']")).isDisplayed();
     }
 
     public boolean isRegionsListDisplayed() {

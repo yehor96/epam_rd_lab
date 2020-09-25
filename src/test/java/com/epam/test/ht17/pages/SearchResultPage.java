@@ -28,7 +28,7 @@ public class SearchResultPage extends BasePage {
     @FindBy(css = ".observe2")
     private List<Button> itemFavoritesButton;
 
-    @FindBy(css = "#observed-search-link .counter")
+    @FindBy(css = "#observed-ads-link .counter")
     private Button favoritesIcon;
 
     @FindBy(id = "fancybox-close")
@@ -42,8 +42,8 @@ public class SearchResultPage extends BasePage {
         return listOfItems;
     }
 
-    public String getSearchFieldContent() {
-        return searchForm.getSearchFieldContent();
+    public boolean isSearchFieldContainsValue(String value) {
+        return searchForm.isSearchFieldContainsValue(value);
     }
 
     public String getCurrentLanguage(){
@@ -73,6 +73,6 @@ public class SearchResultPage extends BasePage {
     }
 
     public String getCountOfFavorites() {
-        return favoritesIcon.getAttribute("value");
+        return favoritesIcon.getText();
     }
 }
