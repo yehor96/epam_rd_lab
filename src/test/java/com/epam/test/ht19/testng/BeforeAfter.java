@@ -51,11 +51,11 @@ public class BeforeAfter {
 
     @AfterGroups("testing")
     void tearGroup(){
-        System.out.println("Before Group");
+        System.out.println("After Group");
     }
 
     @AfterSuite
     void tearSuite(){
-        System.out.println("Before Suite");
+        System.out.println("After Suite");
     }
 }

@@ -17,7 +17,6 @@ public class BeforeAfter {
         System.out.println("BeforeEach");
     }
 
-
     @AfterEach
     void tearDownEach(){
         System.out.println("AfterEach");

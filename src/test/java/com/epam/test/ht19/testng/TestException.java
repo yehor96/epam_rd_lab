@@ -10,6 +10,6 @@ public class TestException {
      */
     @Test(expectedExceptions = ArithmeticException.class)
     public void testThrowException() {
-        ExceptionMaker.getArithmeticException();
+        ExceptionMaker.devideByZeroOperation();
     }
 }
