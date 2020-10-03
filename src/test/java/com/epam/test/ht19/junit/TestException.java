@@ -12,7 +12,7 @@ public class TestException {
      */
     @Test
     public void testThrowException() {
-        assertThrows(ArithmeticException.class, ExceptionMaker::arithmetic);
+        assertThrows(ArithmeticException.class, ExceptionMaker::devideByZeroOperation);
     }
 
 }
