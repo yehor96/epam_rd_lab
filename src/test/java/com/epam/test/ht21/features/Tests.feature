@@ -16,7 +16,7 @@ Feature: Main
   Scenario: It is possible to access partner website via main banner
     When I click on main banner
     And I switch to newly open tab
-    Then Current Url contains "fiverr"
+    Then Current Url does not contain "dou"
 
   Scenario: It is possible to close main banner
     When I close main banner

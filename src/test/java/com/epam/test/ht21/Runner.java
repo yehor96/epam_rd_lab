@@ -8,4 +8,3 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/com/epam/test/ht21/features")
 public class Runner {}
-

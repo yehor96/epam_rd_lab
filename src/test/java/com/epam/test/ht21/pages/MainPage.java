@@ -55,4 +55,8 @@ public class MainPage extends BasePage {
 
         return new JuniorDigestPage(driver);
     }
+
+    public void open() {
+        driver.get(BasePage.BASE_URL);
+    }
 }
