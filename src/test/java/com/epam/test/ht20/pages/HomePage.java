@@ -80,4 +80,8 @@ public class HomePage extends BasePage {
         showAll.click();
         return new SearchResultPage(driver);
     }
+
+    public void open() {
+        driver.get(BasePage.BASE_URL);
+    }
 }

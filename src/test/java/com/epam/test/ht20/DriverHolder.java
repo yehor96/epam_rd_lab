@@ -5,9 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverHolder {
+    static WebDriver driver;
+
     public static WebDriver getDriver(){
-        DriverHolder.setUpVersion(85);
-        return new ChromeDriver();
+        if(driver == null) {
+            DriverHolder.setUpVersion(85);
+            driver = new ChromeDriver();
+        }
+        return driver;
     }
 
     private static void setUpVersion(int version) {

@@ -44,7 +44,7 @@ Feature: Main
     When I click on Regions list
     Then Regions list is displayed
 
-    @Broken
+  @Broken
   Scenario: It is possible to search by all regions
     When I search by all regions with "Java" query
     Then All regions value is displayed in search box
