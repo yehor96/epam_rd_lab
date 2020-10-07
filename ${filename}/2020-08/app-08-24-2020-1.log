@@ -1,0 +1,392 @@
+[
+{
+  "timeMillis" : 1598271399447,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Info",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271399532,
+  "thread" : "main",
+  "level" : "DEBUG",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Debug",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271399533,
+  "thread" : "main",
+  "level" : "WARN",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Warn",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271399535,
+  "thread" : "main",
+  "level" : "ERROR",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Error",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271403215,
+  "thread" : "main",
+  "level" : "ERROR",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Incorrect string is entered: \"j\"",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271404219,
+  "thread" : "main",
+  "level" : "DEBUG",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Attempt to reenter number: \"6\"",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271404221,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Entered number is: 6.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271405112,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Entered number is: 7.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271406664,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Entered operator is: /",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271406666,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "First number is set to: 6.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271406667,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Second number is set to: 7.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271406668,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Operator is set to: /",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271406670,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Result is set to: 0.8571428571428571",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271406671,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Display text is: \"The result of operation 6.00 / 7.00 = 0.86\"",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+
+]
+{
+  "timeMillis" : 1598271910151,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Info",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271910229,
+  "thread" : "main",
+  "level" : "WARN",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Warn",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271910229,
+  "thread" : "main",
+  "level" : "ERROR",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Error",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271921339,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Entered number is: 4.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271924315,
+  "thread" : "main",
+  "level" : "ERROR",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Incorrect string is entered: \"/\"",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271926023,
+  "thread" : "main",
+  "level" : "ERROR",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Incorrect string is entered: \"h\"",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598271926893,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Entered number is: 6.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+{
+  "timeMillis" : 1598272013777,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Info",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272013872,
+  "thread" : "main",
+  "level" : "DEBUG",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Debug",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272013872,
+  "thread" : "main",
+  "level" : "WARN",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Warn",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272013873,
+  "thread" : "main",
+  "level" : "ERROR",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Checking: Error",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272016463,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Entered number is: 8.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272020740,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Entered number is: 9.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272022750,
+  "thread" : "main",
+  "level" : "ERROR",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Incorrect string is entered: \"p\"",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272024521,
+  "thread" : "main",
+  "level" : "DEBUG",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Attempt to reenter operator: \"/\"",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272024522,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Entered operator is: /",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272024523,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "First number is set to: 8.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272024524,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Second number is set to: 9.0",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272024524,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Operator is set to: /",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272024525,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Result is set to: 0.8888888888888888",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1598272024527,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "com.epam.test.ht3.task3.Calculator",
+  "message" : "Display text is: \"The result of operation 8.00 / 9.00 = 0.89\"",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+
+]
+
+]
