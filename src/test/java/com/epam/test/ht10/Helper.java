@@ -2,9 +2,29 @@ package com.epam.test.ht10;
 
 import static com.epam.test.ht10.Validator.validateInput;
 
-public class ConsoleOperator {
+public class Helper {
     public static void print(String text){
         System.out.print(text);
+    }
+
+    public static int[][] getArrayDividedByThreadNumber(int threadNumber, int[] arrayOfNumbers){
+        int newArrayLength = arrayOfNumbers.length / threadNumber;
+        int newArray[][] = new int[threadNumber][newArrayLength];
+
+        int index = 0;
+        for(int i = 0; i < threadNumber; i++ ){
+            for(int j = 0; j < newArrayLength; j++ ){
+                newArray[i][j] = arrayOfNumbers[index];
+                index++;
+            }
+        }
+
+        return newArray;
+    }
+
+    public static int getNumberOfThreads(){
+        print("Also, we need number of threads: ");
+        return validateInput();
     }
 
     public static int[] getInput(){

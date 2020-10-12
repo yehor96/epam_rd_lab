@@ -2,7 +2,7 @@ package com.epam.test.ht10;
 
 import java.util.Scanner;
 
-import static com.epam.test.ht10.ConsoleOperator.print;
+import static com.epam.test.ht10.Helper.print;
 
 public class Validator {
     private static final Scanner scanner = new Scanner(System.in);
