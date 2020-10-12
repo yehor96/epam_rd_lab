@@ -8,7 +8,7 @@ import com.epam.test.ht20.pages.SignInPage;
 import static com.epam.test.ht20.DriverHolder.getDriver;
 
 
-public abstract class PageInitializer {
+public abstract class AbstractStepDefs {
     HomePage homePage = new HomePage(getDriver());
     SignInPage signInPage = new SignInPage(getDriver());
     ForgetPasswordPage forgetPasswordPage = new ForgetPasswordPage(getDriver());

@@ -5,7 +5,7 @@ import cucumber.api.java.en.When;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ForgetPasswordPageStepDefs extends PageInitializer {
+public class ForgetPasswordPageStepDefs extends AbstractStepDefs {
     @When("I complete Forget Password form with {string} value")
     public void iCompleteForgetPasswordFormWithValue(String password) {
         forgetPasswordPage.fillOutLoginField(password);

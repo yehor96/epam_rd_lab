@@ -6,7 +6,7 @@ import cucumber.api.java.en.Then;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SearchResultPageStepDefs extends PageInitializer {
+public class SearchResultPageStepDefs extends AbstractStepDefs {
     @Then("All results contain {string} text")
     public void allResultsContainText(String query) {
         searchResultPage.getItemTexts()

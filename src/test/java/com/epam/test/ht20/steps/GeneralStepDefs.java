@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import static com.epam.test.ht20.DriverHolder.getDriver;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class GeneralStepDefs extends PageInitializer {
+public class GeneralStepDefs extends AbstractStepDefs {
     static WebDriver driver = getDriver();
 
     @Then("Current Url contains {string} string")

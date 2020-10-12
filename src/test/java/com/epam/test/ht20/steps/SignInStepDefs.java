@@ -6,7 +6,7 @@ import cucumber.api.java.en.When;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SignInStepDefs extends PageInitializer {
+public class SignInStepDefs extends AbstractStepDefs {
     @When("I click on Cannot log in button")
     public void iClickOnCannotLogInButton() {
         forgetPasswordPage = signInPage.clickForgetPasswordButton();

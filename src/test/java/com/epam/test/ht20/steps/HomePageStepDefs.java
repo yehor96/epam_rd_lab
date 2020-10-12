@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HomePageStepDefs extends PageInitializer {
+public class HomePageStepDefs extends AbstractStepDefs {
     @Given("Main page is opened")
     public void mainPageIsOpened() {
         homePage.open();
