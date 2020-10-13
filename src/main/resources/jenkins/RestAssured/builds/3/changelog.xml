@@ -1,0 +1,10 @@
+commit 84e9a03e31d6d5cb82befa25bcdb784ad1a9d962
+tree 5a6a3a1b55b6d7743d290df759670c4a8a01ae58
+parent 5e7cbb18c93cabd251d203253ea3dd05acaecfd5
+author Yehor <yehor.shyriaiev@gmail.com> 2020-10-04 15:22:10 +0300
+committer Yehor <yehor.shyriaiev@gmail.com> 2020-10-04 15:22:10 +0300
+
+    Add allure to pom
+
+
+:100644 100644 3790d20d8f8b1a02665451e9d04961bee9f149ad 0e277669a431a141a5c377accf2f90c1c9678277 M	pom.xml

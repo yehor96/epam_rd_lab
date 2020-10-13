@@ -1,0 +1,75 @@
+Started by user [8mha:////4DZfumtJr9xSHoO/T7popO+PVRXGp6+UVAv/Z9cwSA4tAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9ytSM/CIAiyMggcAAAAA=[0myehor
+Running as SYSTEM
+Building in workspace C:\Users\Admin\.jenkins\workspace\RestAssured
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://gitlab.com/yehor-sh/jenkins-test # timeout=10
+Fetching upstream changes from https://gitlab.com/yehor-sh/jenkins-test
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.23.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://gitlab.com/yehor-sh/jenkins-test +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 84e9a03e31d6d5cb82befa25bcdb784ad1a9d962 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 84e9a03e31d6d5cb82befa25bcdb784ad1a9d962 # timeout=10
+Commit message: "Add allure to pom"
+ > git.exe rev-list --no-walk 5e7cbb18c93cabd251d203253ea3dd05acaecfd5 # timeout=10
+[RestAssured] $ cmd.exe /C "mvn -Dtest=PetTests.java test && exit %%ERRORLEVEL%%"
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.epam.jenkins:jenkins-test >--------------------
+[INFO] Building jenkins-test 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[8mha:////4AoxaIFd03wAXdN++x45LPsTz0KqKZVkiAg4UnJnJ/6IAAAAYx+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6S2fNly5fzGzauYGBgqihikoFqS8/OK83NS9ZwhNEghAwQwghQWAACwxA+XYgAAAA==[0m[WARNING] The POM for com.sun.xml.bind:jaxb-osgi:jar:2.2.10 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[8mha:////4KC2YI93VlqoVfMIy5VFMMc25R4l7O9fIe/TfgOkvOkCAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEGvvmZ+X75ZekLlOVfvTjc8FPJgaGiiIGKaiG5Py84vycVD1nCA1SyAABjCCFBQCV27OjYAAAAA==[0m[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ jenkins-test ---
+[8mha:////4AoxaIFd03wAXdN++x45LPsTz0KqKZVkiAg4UnJnJ/6IAAAAYx+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6S2fNly5fzGzauYGBgqihikoFqS8/OK83NS9ZwhNEghAwQwghQWAACwxA+XYgAAAA==[0m[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Admin\.jenkins\workspace\RestAssured\src\main\resources
+[INFO] 
+[8mha:////4KC2YI93VlqoVfMIy5VFMMc25R4l7O9fIe/TfgOkvOkCAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEGvvmZ+X75ZekLlOVfvTjc8FPJgaGiiIGKaiG5Py84vycVD1nCA1SyAABjCCFBQCV27OjYAAAAA==[0m[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ jenkins-test ---
+[INFO] No sources to compile
+[INFO] 
+[8mha:////4KC2YI93VlqoVfMIy5VFMMc25R4l7O9fIe/TfgOkvOkCAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEGvvmZ+X75ZekLlOVfvTjc8FPJgaGiiIGKaiG5Py84vycVD1nCA1SyAABjCCFBQCV27OjYAAAAA==[0m[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ jenkins-test ---
+[8mha:////4AoxaIFd03wAXdN++x45LPsTz0KqKZVkiAg4UnJnJ/6IAAAAYx+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6S2fNly5fzGzauYGBgqihikoFqS8/OK83NS9ZwhNEghAwQwghQWAACwxA+XYgAAAA==[0m[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Admin\.jenkins\workspace\RestAssured\src\test\resources
+[INFO] 
+[8mha:////4KC2YI93VlqoVfMIy5VFMMc25R4l7O9fIe/TfgOkvOkCAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEGvvmZ+X75ZekLlOVfvTjc8FPJgaGiiIGKaiG5Py84vycVD1nCA1SyAABjCCFBQCV27OjYAAAAA==[0m[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ jenkins-test ---
+[INFO] Changes detected - recompiling the module!
+[8mha:////4AoxaIFd03wAXdN++x45LPsTz0KqKZVkiAg4UnJnJ/6IAAAAYx+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6S2fNly5fzGzauYGBgqihikoFqS8/OK83NS9ZwhNEghAwQwghQWAACwxA+XYgAAAA==[0m[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 18 source files to C:\Users\Admin\.jenkins\workspace\RestAssured\target\test-classes
+[8mha:////4AoxaIFd03wAXdN++x45LPsTz0KqKZVkiAg4UnJnJ/6IAAAAYx+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6S2fNly5fzGzauYGBgqihikoFqS8/OK83NS9ZwhNEghAwQwghQWAACwxA+XYgAAAA==[0m[WARNING] /C:/Users/Admin/.jenkins/workspace/RestAssured/src/test/java/com/epam/test/ht12/services/PetService.java: Some input files use unchecked or unsafe operations.
+[8mha:////4AoxaIFd03wAXdN++x45LPsTz0KqKZVkiAg4UnJnJ/6IAAAAYx+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vJLE4u1gvPjexLDVPzxdEhicW5WXmpfvll6S2fNly5fzGzauYGBgqihikoFqS8/OK83NS9ZwhNEghAwQwghQWAACwxA+XYgAAAA==[0m[WARNING] /C:/Users/Admin/.jenkins/workspace/RestAssured/src/test/java/com/epam/test/ht12/services/PetService.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[8mha:////4KC2YI93VlqoVfMIy5VFMMc25R4l7O9fIe/TfgOkvOkCAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEGvvmZ+X75ZekLlOVfvTjc8FPJgaGiiIGKaiG5Py84vycVD1nCA1SyAABjCCFBQCV27OjYAAAAA==[0m[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ jenkins-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.623 s
+[INFO] Finished at: 2020-10-04T15:38:00+03:00
+[INFO] ------------------------------------------------------------------------
+[8mha:////4DbNCzWuwcGhSXybuoVdmx64Ejaixl8YvxOu56WY5ulaAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEuhYV5Rf55ZekOlc7RKnPKH7IxMBQUcQgBdWQnJ9XnJ+TqucMoUEKGSCAEaSwAACsNFCqYAAAAA==[0m[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project jenkins-test: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[8mha:////4DbNCzWuwcGhSXybuoVdmx64Ejaixl8YvxOu56WY5ulaAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEuhYV5Rf55ZekOlc7RKnPKH7IxMBQUcQgBdWQnJ9XnJ+TqucMoUEKGSCAEaSwAACsNFCqYAAAAA==[0m[ERROR] 
+[8mha:////4DbNCzWuwcGhSXybuoVdmx64Ejaixl8YvxOu56WY5ulaAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEuhYV5Rf55ZekOlc7RKnPKH7IxMBQUcQgBdWQnJ9XnJ+TqucMoUEKGSCAEaSwAACsNFCqYAAAAA==[0m[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[8mha:////4DbNCzWuwcGhSXybuoVdmx64Ejaixl8YvxOu56WY5ulaAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEuhYV5Rf55ZekOlc7RKnPKH7IxMBQUcQgBdWQnJ9XnJ+TqucMoUEKGSCAEaSwAACsNFCqYAAAAA==[0m[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[8mha:////4DbNCzWuwcGhSXybuoVdmx64Ejaixl8YvxOu56WY5ulaAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEuhYV5Rf55ZekOlc7RKnPKH7IxMBQUcQgBdWQnJ9XnJ+TqucMoUEKGSCAEaSwAACsNFCqYAAAAA==[0m[ERROR] 
+[8mha:////4DbNCzWuwcGhSXybuoVdmx64Ejaixl8YvxOu56WY5ulaAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEuhYV5Rf55ZekOlc7RKnPKH7IxMBQUcQgBdWQnJ9XnJ+TqucMoUEKGSCAEaSwAACsNFCqYAAAAA==[0m[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[8mha:////4DbNCzWuwcGhSXybuoVdmx64Ejaixl8YvxOu56WY5ulaAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEuhYV5Rf55ZekOlc7RKnPKH7IxMBQUcQgBdWQnJ9XnJ+TqucMoUEKGSCAEaSwAACsNFCqYAAAAA==[0m[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Build step 'Invoke top-level Maven targets' marked build as failure
+[RestAssured] $ C:\Users\Admin\.jenkins\tools\ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation\allure\bin\allure.bat generate -c -o C:\Users\Admin\.jenkins\workspace\RestAssured\allure-report
+allure-results does not exists
+Report successfully generated to C:\Users\Admin\.jenkins\workspace\RestAssured\allure-report
+Allure report was successfully generated.
+Creating artifact for the build.
+Artifact was added to the build.
+Finished: FAILURE
