@@ -1,0 +1,10 @@
+commit 6f11f58033b2ac1ae5cccd96e3e3019486fd80b6
+tree 5f2f6cfff6e4ded4a00d35de4dffc5b22542893e
+parent 84e9a03e31d6d5cb82befa25bcdb784ad1a9d962
+author yehor-sh <yehor_shyriaiev@epam.com> 2020-10-04 15:45:29 +0300
+committer yehor-sh <yehor_shyriaiev@epam.com> 2020-10-04 15:45:29 +0300
+
+    Remove pom changes
+
+
+:100644 100644 0e277669a431a141a5c377accf2f90c1c9678277 3790d20d8f8b1a02665451e9d04961bee9f149ad M	pom.xml
