@@ -17,7 +17,7 @@
         <io-github-bonigarcia.version>4.2.0</io-github-bonigarcia.version>
         <org-seleniumhq-selenium.version>3.141.59</org-seleniumhq-selenium.version>
         <org-mariadb-jdbc.version>2.6.2</org-mariadb-jdbc.version>
-        <org-apache-logging-log4j.version>2.7</org-apache-logging-log4j.version>
+        <org-apache-logging-log4j.version>2.13.2</org-apache-logging-log4j.version>
         <com-fasterxml-jackson-module.version>2.11.1</com-fasterxml-jackson-module.version>
         <com-fasterxml-jackson-core.version>2.8.8.1</com-fasterxml-jackson-core.version>
         <org-junit-jupiter.version>5.6.2</org-junit-jupiter.version>
