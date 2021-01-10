@@ -19,7 +19,7 @@ Topics:
 - ht13 - Database Testing
 - ht14 - Selenium
 - ht15 - Selenium
-- ht16 - CSS Locators, Selenium\
+- ht16 - CSS Locators, Selenium
 - ht17 - HTML Elements
 - ht18 - Selenide
 - ht19 - JUnit5 vs TestNG
