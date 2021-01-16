@@ -25,3 +25,5 @@ Topics:
 - ht19 - JUnit5 vs TestNG
 - ht20 - BDD, Cucumber, HTML Elements
 - ht21 - BDD, Cucumber, Selenium
+
+Original repository: https://gitlab.com/yehor-sh/epam_rd_lab
